@@ -1,157 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
    <children>
-      <VBox prefHeight="800.0" prefWidth="282.0" style="-fx-background-color: #E5E5E5;">
+      <VBox prefHeight="800.0" prefWidth="265.0" style="-fx-background-color: #E5E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="201.0" fitWidth="283.0" pickOnBounds="true" preserveRatio="true" />
-            <Button fx:id="SearchButton" alignment="BASELINE_LEFT" mnemonicParsing="false" onMousePressed="#handleButtonPress" pickOnBounds="false" prefHeight="59.0" prefWidth="283.0" stylesheets="@../Utils/Styling.css" text="Search">
-               <font>
-                  <Font name="Montserrat SemiBold" size="15.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets left="40.0" />
-               </padding>
+            <ImageView fitHeight="217.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true" />
+            <JFXButton fx:id="SearchButton" alignment="BASELINE_LEFT" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96f" stylesheets="@../Utils/Button.css" text="   Search">
                <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="37.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/search.png" />
                      </image>
                   </ImageView>
-               </graphic></Button>
-            <Button fx:id="ShowButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="69.0" mnemonicParsing="false" onMousePressed="#handleButtonPress" pickOnBounds="false" prefHeight="59.0" prefWidth="285.0" stylesheets="@../Utils/Styling.css" text="Show all words">
+               </graphic>
                <font>
-                  <Font name="Montserrat SemiBold" size="15.0" />
+                  <Font name="Montserrat SemiBold" size="14.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <opaqueInsets>
+               <VBox.margin>
                   <Insets />
-               </opaqueInsets>
+               </VBox.margin>
                <padding>
-                  <Insets left="40.0" />
+                  <Insets left="48.0" />
                </padding>
+            </JFXButton>
+            <JFXButton fx:id="ShowButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96e" stylesheets="@../Utils/Button.css" text="   Show all words">
                <graphic>
-                  <ImageView fitHeight="31.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/list.png" />
                      </image>
                   </ImageView>
                </graphic>
-            </Button>
-            <Button fx:id="AddButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="128.0" mnemonicParsing="false" onMousePressed="#handleButtonPress" pickOnBounds="false" prefHeight="59.0" prefWidth="285.0" stylesheets="@../Utils/Styling.css" text="Add more words">
                <font>
-                  <Font name="Montserrat SemiBold" size="15.0" />
+                  <Font name="Montserrat SemiBold" size="14.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <opaqueInsets>
+               <VBox.margin>
                   <Insets />
-               </opaqueInsets>
+               </VBox.margin>
                <padding>
-                  <Insets left="40.0" />
+                  <Insets left="45.0" />
                </padding>
+            </JFXButton>
+            <JFXButton fx:id="AddButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="73.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6fc96d" stylesheets="@../Utils/Button.css" text="   Add more words">
                <graphic>
-                  <ImageView fitHeight="35.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/add.png" />
                      </image>
                   </ImageView>
                </graphic>
-            </Button>
-            <Button fx:id="ExporButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="69.0" mnemonicParsing="false" pickOnBounds="false" prefHeight="59.0" prefWidth="285.0" stylesheets="@../Utils/Styling.css" text="Export Dictionary">
                <font>
-                  <Font name="Montserrat SemiBold" size="15.0" />
+                  <Font name="Montserrat SemiBold" size="14.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <opaqueInsets>
+               <VBox.margin>
                   <Insets />
-               </opaqueInsets>
+               </VBox.margin>
                <padding>
-                  <Insets left="40.0" />
+                  <Insets left="44.0" />
                </padding>
+            </JFXButton>
+            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
                <graphic>
-                  <ImageView fitHeight="37.0" fitWidth="35.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/export.png" />
                      </image>
                   </ImageView>
                </graphic>
-            </Button>
-            <Button fx:id="GoogleButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMousePressed="#handleButtonPress" pickOnBounds="false" prefHeight="59.0" prefWidth="285.0" stylesheets="@../Utils/Styling.css" text="Google Translate">
                <font>
-                  <Font name="Montserrat SemiBold" size="15.0" />
+                  <Font name="Montserrat SemiBold" size="14.0" />
                </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <opaqueInsets>
+               <VBox.margin>
                   <Insets />
-               </opaqueInsets>
+               </VBox.margin>
                <padding>
-                  <Insets left="40.0" />
+                  <Insets left="44.0" />
                </padding>
+            </JFXButton>
+            <JFXButton fx:id="GoogleButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="199.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="   Google Translate">
                <graphic>
-                  <ImageView fitHeight="39.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../Image/translate.png" />
                      </image>
                   </ImageView>
                </graphic>
-            </Button>
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <padding>
+                  <Insets left="44.0" />
+               </padding>
+            </JFXButton>
          </children>
+         <effect>
+            <DropShadow color="#a4a2a2" height="0.0" radius="9.3025" width="39.21" />
+         </effect>
       </VBox>
-      <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="807.0" prefWidth="923.0">
+      <ImageView fitHeight="24.0" fitWidth="66.0" onMouseClicked="#CloseButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <image>
+            <Image url="@../Image/exit.png" />
+         </image>
+      </ImageView>
+      <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField layoutX="221.0" layoutY="170.0" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
-            <Pane layoutX="59.0" layoutY="286.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
+            <Pane layoutX="59.0" layoutY="41.0" prefHeight="664.0" prefWidth="808.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
                <effect>
                   <DropShadow height="39.21" radius="19.105" width="39.21">
                      <color>
-                        <Color red="0.7368420958518982" green="0.7266082167625427" blue="0.7266082167625427" />
+                        <Color blue="0.7266082167625427" green="0.7266082167625427" red="0.7368420958518982" />
                      </color>
                   </DropShadow>
                </effect>
             </Pane>
-            <Circle fill="#ee1139" layoutX="896.0" layoutY="27.0" radius="13.0" strokeType="INSIDE" />
-            <Label fx:id="CloseButton" layoutX="890.0" layoutY="17.0" text="X" textFill="WHITE">
-               <font>
-                  <Font name="Montserrat Black" size="16.0" />
-               </font>
-            </Label>
          </children>
       </Pane>
-      <Pane fx:id="AddPane" layoutX="292.0" layoutY="10.0" prefHeight="807.0" prefWidth="923.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Pane fx:id="GooglePane" layoutX="292.0" layoutY="10.0" prefHeight="807.0" prefWidth="923.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
-      <Pane fx:id="ShowPane" layoutX="293.0" layoutY="10.0" prefHeight="807.0" prefWidth="923.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="AddPane" layoutX="275.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
+      <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
          <children>
-            <Pane layoutX="62.0" layoutY="67.0" prefHeight="678.0" prefWidth="807.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 25;" />
-            <Circle fill="#ee1139" layoutX="897.0" layoutY="28.0" radius="13.0" strokeType="INSIDE" />
-            <Label fx:id="CloseButton1" layoutX="891.0" layoutY="17.0" text="X" textFill="WHITE">
-               <font>
-                  <Font name="Montserrat Black" size="16.0" />
-               </font>
-            </Label>
-         </children></Pane>
+            <TextField layoutX="221.0" layoutY="100.0" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
+            <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
+               <effect>
+                  <DropShadow height="39.21" radius="19.105" width="39.21">
+                     <color>
+                        <Color blue="0.7266082167625427" green="0.7266082167625427" red="0.7368420958518982" />
+                     </color>
+                  </DropShadow>
+               </effect>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

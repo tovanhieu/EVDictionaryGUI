@@ -1,57 +1,48 @@
 package Application;
 
+import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
+
+import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class Controller implements Initializable{
+
+public class Controller implements Initializable {
     @FXML
-    private Label CloseButton;
+    private AnchorPane anchorPane;
     @FXML
-    private Button SearchButton,ShowButton,GoogleButton,AddButton;
+    private Pane SearchPane, ShowPane, GooglePane, AddPane;
     @FXML
-    private Pane SearchPane,ShowPane,GooglePane,AddPane;
+    private JFXButton SearchButton, ShowButton, AddButton, GoogleButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        CloseButton.setOnMouseClicked(event -> System.exit(0));
+
     }
 
     @FXML
-    private void handleButtonPress(MouseEvent event)
-    {
-        if (event.getTarget()==SearchButton)
-        {
-            SearchPane.setVisible(true);
-            ShowPane.setVisible(false);
-            GooglePane.setVisible(false);
-            AddPane.setVisible(false);
-        }
-        else if (event.getTarget()==AddButton)
-        {
-            SearchPane.setVisible(false);
-            ShowPane.setVisible(false);
-            AddPane.setVisible(true);
-            GooglePane.setVisible(false);
-        }
-        else if (event.getTarget()==ShowButton)
-        {
-            SearchPane.setVisible(false);
-            ShowPane.setVisible(true);
-            AddPane.setVisible(false);
-            GooglePane.setVisible(false);
-        }
-        else if (event.getTarget()==GoogleButton)
-        {
-            SearchPane.setVisible(false);
-            ShowPane.setVisible(false);
-            AddPane.setVisible(false);
-            GooglePane.setVisible(true);
+    private void handleButtonAction(ActionEvent event) {
+        if (event.getSource() == SearchButton) {
+            SearchPane.toFront();
+        } else if (event.getSource() == ShowButton) {
+            ShowPane.toFront();
+        } else if (event.getSource() == AddButton) {
+            AddPane.toFront();
+        } else if (event.getSource() == GoogleButton) {
+            GooglePane.toFront();
         }
     }
+
+    @FXML
+    private void CloseButton(MouseEvent event) {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+    }
+
 }
