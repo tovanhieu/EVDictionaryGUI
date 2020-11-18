@@ -1,5 +1,5 @@
 ## E-V Dictionary 📖
-Coding in ___Java___ using ___JavaFX___ _( GUI version come out soon)_
+Coding in ___Java___ using ___JavaFX___ _( Full version come out soon)_
 
 ## Information 🏷
 - __IDE:__ _IntelliJ IDEA Ultimate Edition_
