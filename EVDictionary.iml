@@ -8,6 +8,11 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JavaFX" level="application" />
+    <orderEntry type="library" name="JavaFX" level="application" />
+    <orderEntry type="library" name="charm-glisten-6.0.5" level="application" />
+    <orderEntry type="library" name="controlsfx-11.0.3" level="application" />
     <orderEntry type="library" name="jfoenix-9.0.10" level="application" />
+    <orderEntry type="library" name="com.vladsch.flexmark:flexmark:0.9.1" level="application" />
+    <orderEntry type="library" name="com.atlassian.commonmark:commonmark:0.15.2" level="application" />
   </component>
 </module>

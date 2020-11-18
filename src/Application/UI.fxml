@@ -3,6 +3,7 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -11,12 +12,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
    <children>
       <VBox prefHeight="800.0" prefWidth="265.0" style="-fx-background-color: #E5E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="217.0" fitWidth="264.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fitHeight="139.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/DicLogo.png" />
+               </image>
+               <VBox.margin>
+                  <Insets left="45.0" top="35.0" />
+               </VBox.margin>
+            </ImageView>
+            <ImageView fitHeight="84.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true" />
             <JFXButton fx:id="SearchButton" alignment="BASELINE_LEFT" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96f" stylesheets="@../Utils/Button.css" text="   Search">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
@@ -34,6 +44,9 @@
                <padding>
                   <Insets left="48.0" />
                </padding>
+               <tooltip>
+                  <Tooltip text="Tìm kiếm từ vựng" />
+               </tooltip>
             </JFXButton>
             <JFXButton fx:id="ShowButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96e" stylesheets="@../Utils/Button.css" text="   Show all words">
                <graphic>
@@ -52,6 +65,9 @@
                <padding>
                   <Insets left="45.0" />
                </padding>
+               <tooltip>
+                  <Tooltip text="Hiển thị tất cả từ trong từ điển" />
+               </tooltip>
             </JFXButton>
             <JFXButton fx:id="AddButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="73.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6fc96d" stylesheets="@../Utils/Button.css" text="   Add more words">
                <graphic>
@@ -70,6 +86,9 @@
                <padding>
                   <Insets left="44.0" />
                </padding>
+               <tooltip>
+                  <Tooltip text="Thêm các từ mà từ điển chưa có" />
+               </tooltip>
             </JFXButton>
             <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
                <graphic>
@@ -88,6 +107,9 @@
                <padding>
                   <Insets left="44.0" />
                </padding>
+               <tooltip>
+                  <Tooltip text="Xuất dữ liệu từ điển ra file" />
+               </tooltip>
             </JFXButton>
             <JFXButton fx:id="GoogleButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="199.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="   Google Translate">
                <graphic>
@@ -106,7 +128,33 @@
                <padding>
                   <Insets left="44.0" />
                </padding>
+               <tooltip>
+                  <Tooltip text="Tra từ sử dụng Google Dịch" />
+               </tooltip>
             </JFXButton>
+            <JFXButton fx:id="AboutButton" alignment="BASELINE_LEFT" graphicTextGap="13.0" layoutX="10.0" layoutY="526.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="About">
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/about.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+               <font>
+                  <Font name="Montserrat SemiBold" size="14.0" />
+               </font>
+               <padding>
+                  <Insets left="39.0" />
+               </padding>
+               <tooltip>
+                  <Tooltip text="Thông tin về tác giả và các thư viện, plugins, dependencies được áp dụng" />
+               </tooltip>
+            </JFXButton>
+            <Text fill="#5697ba" strokeType="OUTSIDE" strokeWidth="0.0" text="Version 1.0" textAlignment="CENTER" wrappingWidth="264.7294921875">
+               <VBox.margin>
+                  <Insets top="140.0" />
+               </VBox.margin>
+            </Text>
          </children>
          <effect>
             <DropShadow color="#a4a2a2" height="0.0" radius="9.3025" width="39.21" />
@@ -130,11 +178,12 @@
             </Pane>
          </children>
       </Pane>
-      <Pane fx:id="AddPane" layoutX="275.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0" />
+      <Pane fx:id="AddPane" layoutX="275.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="33.0">
+      <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+      <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField layoutX="221.0" layoutY="100.0" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
+            <TextField fx:id="InputSearch" layoutX="221.0" layoutY="100.0" onAction="#InputTextField" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
             <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
                <effect>
                   <DropShadow height="39.21" radius="19.105" width="39.21">
