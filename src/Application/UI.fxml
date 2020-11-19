@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -186,7 +187,7 @@
       <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="InputSearch" layoutX="221.0" layoutY="100.0" onAction="#InputTextField" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
+            <TextField fx:id="InputSearch" layoutX="221.0" layoutY="100.0" onKeyReleased="#inputSearch" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
             <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
                <effect>
                   <DropShadow height="39.21" radius="19.105" width="39.21">
@@ -195,6 +196,9 @@
                      </color>
                   </DropShadow>
                </effect>
+               <children>
+                  <JFXTextArea fx:id="searchTextArea" layoutX="31.0" layoutY="23.0" prefHeight="426.0" prefWidth="729.0" />
+               </children>
             </Pane>
          </children>
       </Pane>

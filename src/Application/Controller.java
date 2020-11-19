@@ -1,9 +1,11 @@
 package Application;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextArea;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -11,9 +13,11 @@ import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import javafx.event.ActionEvent;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-
+import java.util.List;
+import Handling.*;
 
 public class Controller implements Initializable {
     @FXML
@@ -24,9 +28,16 @@ public class Controller implements Initializable {
     private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton;
     @FXML
     private TextField InputSearch;
+    @FXML
+    private JFXTextArea searchTextArea;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        try {
+            DictionaryManagement.insertFromFile();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -48,15 +59,11 @@ public class Controller implements Initializable {
     }
     //End.
 
-    //Auto complete when search a word
-    //Start
-    @FXML
-    private void InputTextField(ActionEvent event) {
-        String[] input = {"Hi", "Hello"};
-        TextFields.bindAutoCompletion(InputSearch, input);
-    }
-    //End.
-
+   private void inputSearch(KeyEvent event)
+   {
+       String look = InputSearch.getText().toString();
+       List <String> s = Dictionary.
+   }
 
     //Close the program when click Exit icon
     //Start

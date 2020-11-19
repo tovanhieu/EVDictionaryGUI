@@ -1,18 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Tooltip?>
-<?import javafx.scene.effect.DropShadow?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.text.Font?>
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.effect.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
    <children>
@@ -174,7 +169,7 @@
                <effect>
                   <DropShadow height="39.21" radius="19.105" width="39.21">
                      <color>
-                        <Color blue="0.7266082167625427" green="0.7266082167625427" red="0.7368420958518982" />
+                        <Color red="0.7368420958518982" green="0.7266082167625427" blue="0.7266082167625427" />
                      </color>
                   </DropShadow>
                </effect>
@@ -186,12 +181,12 @@
       <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="InputSearch" layoutX="221.0" layoutY="100.0" onAction="#InputTextField" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
+            <TextField fx:id="InputSearch" layoutX="221.0" layoutY="100.0" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
             <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
                <effect>
                   <DropShadow height="39.21" radius="19.105" width="39.21">
                      <color>
-                        <Color blue="0.7266082167625427" green="0.7266082167625427" red="0.7368420958518982" />
+                        <Color red="0.7368420958518982" green="0.7266082167625427" blue="0.7266082167625427" />
                      </color>
                   </DropShadow>
                </effect>
