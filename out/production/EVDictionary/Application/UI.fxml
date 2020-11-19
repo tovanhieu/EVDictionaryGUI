@@ -190,6 +190,9 @@
                      </color>
                   </DropShadow>
                </effect>
+               <children>
+                  <JFXTextArea fx:id="searchTextArea" layoutX="31.0" layoutY="23.0" prefHeight="426.0" prefWidth="729.0" />
+               </children>
             </Pane>
          </children>
       </Pane>

@@ -12,15 +12,16 @@ public class Word {
         raw = w.raw;
         meaning = w.meaning;
     }
-    // Setter
+
     public void copy(Word w) {
         raw = w.raw;
         meaning = w.meaning;
     }
+
+    // Setter
     public void setWordTarget(String r) {
         raw = r;
     }
-
     public void setWordExplain(String m) {
         meaning = m;
     }
@@ -29,7 +30,6 @@ public class Word {
     public String getWordTarget() {
         return raw;
     }
-
     public String getWordExplain() {
         return meaning;
     }
