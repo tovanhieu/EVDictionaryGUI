@@ -15,7 +15,6 @@ import javafx.event.ActionEvent;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.List;
 import Handling.*;
 
 public class Controller implements Initializable {
@@ -54,11 +53,6 @@ public class Controller implements Initializable {
     }
     //End.
 
-   private void inputSearch(KeyEvent event)
-   {
-       String look = InputSearch.getText().toString();
-       List <String> s = Dictionary.
-   }
 
     //Close the program when click Exit icon
     //Start
