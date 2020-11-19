@@ -13,7 +13,6 @@ import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import javafx.event.ActionEvent;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.List;
@@ -33,11 +32,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        try {
-            DictionaryManagement.insertFromFile();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+
 
     }
 
