@@ -1,6 +1,8 @@
 package Handling;
 
 import java.sql.*;
+import java.util.Arrays;
+import java.util.Set;
 
 import static Handling.Dictionary.*;
 
@@ -43,6 +45,18 @@ public class Management {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+
+    //Get an array of English words
+    public static String[] getRaw()
+    {
+        //A set collection to save list
+        Set<String> raw = Dict.keySet();
+        //Convert to string array
+        String[] rawArray = raw.toArray(new String[raw.size()]);
+        //Sort array in alphabetical order
+        Arrays.sort(rawArray);
+        return rawArray;
     }
 
 }
