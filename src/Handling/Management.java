@@ -112,16 +112,23 @@ public class Management {
 
     //Export dictionary to file
     public static void exportDictionary() throws IOException {
+        //Output file directory
         File directory = new File("Dictionary.txt");
         Map<String, Entry> storeEntry = new HashMap<>();
+        //Eexecute method defined above
         getWordsEntry(storeEntry);
+        //Create writer
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(directory), "UTF8"));
+        //Loop to write all word to file
+
         for (String i : storeEntry.keySet()) {
             Entry ex = storeEntry.get(i);
+            //Format output entry's format
             String result = "#" + ex.getId() + "\n- " + ex.getWord() + "\t(" + ex.getPronounce() + ")\n- " + ex.getDescription() + "\n";
             writer.write(result);
             writer.newLine();
         }
+        //Close writer
         writer.close();
     }
 
