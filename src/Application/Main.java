@@ -20,7 +20,6 @@ public class Main extends Application {
 
 
         //Make program can be dragged without TitleBar
-        //Start
         root.setOnMousePressed(event -> {
             x = event.getSceneX();
             y = event.getSceneY();
@@ -29,7 +28,6 @@ public class Main extends Application {
             primaryStage.setX(event.getScreenX() - x);
             primaryStage.setY(event.getScreenY() - y);
         });
-        //End.
 
         primaryStage.setScene(new Scene(root));
         primaryStage.show();

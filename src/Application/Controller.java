@@ -13,8 +13,12 @@ import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import javafx.event.ActionEvent;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.net.URL;
 import java.util.ResourceBundle;
+
 import Handling.*;
 
 public class Controller implements Initializable {
@@ -32,11 +36,11 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        connectSQLite();
 
     }
 
     //Change Pane with the selected Button
-    //Start
     @FXML
     private void handleButtonAction(ActionEvent event) {
         if (event.getSource() == SearchButton) {
@@ -51,16 +55,35 @@ public class Controller implements Initializable {
             AboutPane.toFront();
         }
     }
-    //End.
+
+    //Connect to SQLite to get words in database
+    public static void connectSQLite() {
+        Connection connect = null;
+        try {
+            // Database parameters
+            String url = "jdbc:sqlite:EVDatabase.db";
+            // Create a connection to the database
+            connect = DriverManager.getConnection(url);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        } finally {
+            try {
+                if (connect != null) {
+                    connect.close();
+                }
+            } catch (SQLException ex) {
+                System.out.println(ex.getMessage());
+            }
+        }
+    }
 
 
     //Close the program when click Exit icon
-    //Start
     @FXML
     private void CloseButton(MouseEvent event) {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
     }
-    //End.
 
 }
