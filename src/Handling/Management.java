@@ -111,9 +111,8 @@ public class Management {
     }
 
     //Export dictionary to file
-    public static void exportDictionary() throws IOException {
+    public static void exportDictionary(File directory) throws IOException {
         //Output file directory
-        File directory = new File("Dictionary.txt");
         Map<String, Entry> storeEntry = new HashMap<>();
         //Eexecute method defined above
         getWordsEntry(storeEntry);
