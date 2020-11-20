@@ -209,6 +209,11 @@
                      <font>
                         <Font size="17.0" />
                      </font></JFXTextArea>
+                  <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="739.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/speaker.png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
          </children>

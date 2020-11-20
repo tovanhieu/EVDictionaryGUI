@@ -65,11 +65,15 @@ public class Controller implements Initializable {
             AboutPane.toFront();
         } else if (event.getSource() == ExportButton) {
             FileChooser fileChooser = new FileChooser();
+            //Title of dialog
             fileChooser.setTitle("Save");
+            //File's format
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
             Stage stage = (Stage) anchorPane.getScene().getWindow();
+            //Open dialog to choose where to save file
             File file = fileChooser.showSaveDialog(stage);
             if (file != null) {
+                //Write data to file
                 exportDictionary(file);
             }
         }
@@ -90,6 +94,7 @@ public class Controller implements Initializable {
         showTextArea.setText(searchWord(listView.getSelectionModel().getSelectedItem().toString()));
     }
 
+    //Show Vietnamese meaning after inputting an English word in TextField
     @FXML
     private void getInputMeaning(ActionEvent event) {
         searchTextArea.setEditable(false);
