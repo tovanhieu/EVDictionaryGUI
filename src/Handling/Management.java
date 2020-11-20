@@ -6,6 +6,7 @@ package Handling;
  */
 
 
+import java.io.*;
 import java.sql.*;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -67,13 +68,12 @@ public class Management {
     }
 
     //Get all words in dictionary to write to file later
-    public static void getWordsEntry() {
+    public static void getWordsEntry(Map<String, Entry> storeEntry) {
         Connection connect = null;
         try {
             //Make a connection and get data, like "connectSQLite" above
             String url = "jdbc:sqlite:EVDatabase.db";
             connect = DriverManager.getConnection(url);
-            Map<String, Entry> storeEntry = new HashMap<>();
             String query = "SELECT * FROM av";
             Statement statetment = null;
             ResultSet resultSet = null;
@@ -108,6 +108,21 @@ public class Management {
                 System.out.println(ex.getMessage());
             }
         }
+    }
+
+    //Export dictionary to file
+    public static void exportDictionary() throws IOException {
+        File directory = new File("Dictionary.txt");
+        Map<String, Entry> storeEntry = new HashMap<>();
+        getWordsEntry(storeEntry);
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(directory), "UTF8"));
+        for (String i : storeEntry.keySet()) {
+            Entry ex = storeEntry.get(i);
+            String result = "#" + ex.getId() + "\n- " + ex.getWord() + "\t(" + ex.getPronounce() + ")\n- " + ex.getDescription() + "\n";
+            writer.write(result);
+            writer.newLine();
+        }
+        writer.close();
     }
 
 }

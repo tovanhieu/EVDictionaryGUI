@@ -92,7 +92,7 @@
                   <Tooltip text="Thêm các từ mà từ điển chưa có" />
                </tooltip>
             </JFXButton>
-            <JFXButton alignment="BASELINE_LEFT" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
+            <JFXButton fx:id="ExportButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>

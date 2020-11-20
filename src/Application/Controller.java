@@ -22,6 +22,8 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import javafx.event.ActionEvent;
+
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,7 +36,7 @@ public class Controller implements Initializable {
     @FXML
     private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane;
     @FXML
-    private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton;
+    private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton,ExportButton;
     @FXML
     private TextField InputSearch;
     @FXML
@@ -52,7 +54,7 @@ public class Controller implements Initializable {
 
     //Change Pane with the selected Button
     @FXML
-    private void handleButtonAction(ActionEvent event) {
+    private void handleButtonAction(ActionEvent event) throws IOException {
         if (event.getSource() == SearchButton) {
             SearchPane.toFront();
         } else if (event.getSource() == ShowButton) {
@@ -63,7 +65,8 @@ public class Controller implements Initializable {
             GooglePane.toFront();
         } else if (event.getSource() == AboutButton) {
             AboutPane.toFront();
-        }
+        } else if (event.getSource() == ExportButton)
+            exportDictionary();
     }
 
     //Show all words
@@ -89,6 +92,7 @@ public class Controller implements Initializable {
         searchTextArea.setEditable(false);
         searchTextArea.setText(searchWord(InputSearch.getText()));
     }
+
 
     //Close the program when click Exit icon
     @FXML
