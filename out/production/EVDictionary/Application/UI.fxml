@@ -171,32 +171,11 @@
          </image>
       </ImageView>
       <Pane fx:id="AddPane" layoutX="275.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
       <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <Pane layoutX="59.0" layoutY="41.0" prefHeight="664.0" prefWidth="808.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
-               <effect>
-                  <DropShadow height="39.21" radius="19.105" width="39.21">
-                     <color>
-                        <Color blue="0.7266082167625427" green="0.7266082167625427" red="0.7368420958518982" />
-                     </color>
-                  </DropShadow>
-               </effect>
-               <children>
-                  <JFXListView fx:id="listView" layoutX="38.0" layoutY="15.0" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0" />
-                  <JFXTextArea fx:id="showTextArea" layoutX="415.0" layoutY="14.0" prefHeight="632.0" prefWidth="368.0">
-                     <font>
-                        <Font size="17.0" />
-                     </font></JFXTextArea>
-               </children>
-            </Pane>
-         </children>
-      </Pane>
       <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <TextField fx:id="InputSearch" layoutX="221.0" layoutY="100.0" onAction="#getInputMeaning" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
-            <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: #E5E5E5; -fx-background-radius: 20;">
+            <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
                <effect>
                   <DropShadow height="39.21" radius="19.105" width="39.21">
                      <color>
@@ -205,9 +184,9 @@
                   </DropShadow>
                </effect>
                <children>
-                  <JFXTextArea fx:id="searchTextArea" layoutX="31.0" layoutY="23.0" prefHeight="426.0" prefWidth="729.0">
+                  <JFXTextArea fx:id="searchTextArea" layoutX="31.0" layoutY="23.0" prefHeight="426.0" prefWidth="697.0">
                      <font>
-                        <Font size="17.0" />
+                        <Font size="20.0" />
                      </font></JFXTextArea>
                   <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="739.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -218,5 +197,59 @@
             </Pane>
          </children>
       </Pane>
+      <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane layoutX="466.0" layoutY="68.0" prefHeight="632.0" prefWidth="350.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+               <children>
+                  <JFXTextArea fx:id="showTextArea" layoutX="18.0" layoutY="41.0" prefHeight="576.0" prefWidth="316.0">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </JFXTextArea>
+                  <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="308.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/speaker.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <effect>
+                  <DropShadow color="#b9b3b3" height="27.07" radius="12.2775" width="24.04" />
+               </effect>
+            </Pane>
+            <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
+               <effect>
+                  <DropShadow color="#b9b4b4" height="24.04" radius="10.76" />
+               </effect>
+            </JFXListView>
+         </children>
+      </Pane>
+      <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField fx:id="GoogleSearch" alignment="CENTER" layoutX="121.0" layoutY="213.0" prefHeight="214.0" prefWidth="668.0" style="-fx-background-radius: 22;">
+               <font>
+                  <Font size="30.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#a8a3a3" height="24.05" radius="11.5225" width="24.04" />
+               </effect></TextField>
+            <ImageView fitHeight="106.0" fitWidth="622.0" layoutX="190.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/google-translate.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="123.0" layoutY="475.0" prefHeight="221.0" prefWidth="668.0" style="-fx-background-color: ffffff; -fx-background-radius: 22;">
+               <effect>
+                  <DropShadow color="#a8a2a2" height="25.56" radius="13.4175" width="30.11" />
+               </effect>
+               <children>
+                  <JFXTextArea fx:id="googleTextArea" layoutX="24.0" layoutY="15.0" prefHeight="193.0" prefWidth="626.0" />
+               </children>
+            </Pane>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="748.0" layoutY="221.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/speaker.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
    </children>
 </AnchorPane>

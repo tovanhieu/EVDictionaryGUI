@@ -38,11 +38,11 @@ public class Controller implements Initializable {
     @FXML
     private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton;
     @FXML
-    private TextField InputSearch;
+    private TextField InputSearch, GoogleSearch;
     @FXML
     private JFXListView listView;
     @FXML
-    private JFXTextArea searchTextArea, showTextArea;
+    private JFXTextArea searchTextArea, showTextArea, googleTextArea;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -119,7 +119,6 @@ public class Management {
         //Create writer
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(directory), "UTF8"));
         //Loop to write all word to file
-
         for (String i : storeEntry.keySet()) {
             Entry ex = storeEntry.get(i);
             //Format output entry's format
