@@ -16,7 +16,8 @@ public class Main extends Application {
 
         Parent root = FXMLLoader.load(getClass().getResource("UI.fxml"));
         primaryStage.setTitle("EVDictionary");
-        primaryStage.initStyle(StageStyle.UNDECORATED); //Hide the TitleBar of OS
+        //Hide the TitleBar of OS
+        primaryStage.initStyle(StageStyle.UNDECORATED);
 
 
         //Make program can be dragged without TitleBar

@@ -15,7 +15,7 @@ import javafx.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import Handling.*;
+import static Handling.Management.*;
 
 public class Controller implements Initializable {
     @FXML
@@ -31,7 +31,7 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        Management.connectSQLite();
+        connectSQLite();
     }
 
     //Change Pane with the selected Button
