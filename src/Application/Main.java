@@ -1,5 +1,10 @@
 package Application;
 
+/*
+ * Class "Main" executes program and edit the Scene and Stage of application
+ * @Author: Meoki
+ */
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

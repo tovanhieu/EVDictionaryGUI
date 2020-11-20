@@ -1,5 +1,10 @@
 package Application;
 
+/*
+ * Class "Controller" control all action of JavaFX application like click, press key,...
+ * @Author: Meoki
+ */
+
 import Handling.Dictionary;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
@@ -12,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import org.controlsfx.control.textfield.TextFields;
 import javafx.event.ActionEvent;
@@ -19,6 +26,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import static Handling.Management.*;
+import static Handling.Dictionary.*;
 
 public class Controller implements Initializable {
     @FXML
@@ -30,9 +38,11 @@ public class Controller implements Initializable {
     @FXML
     private TextField InputSearch;
     @FXML
-    private JFXTextArea searchTextArea,showTextArea;
-    @FXML
     private JFXListView listView;
+    @FXML
+    private WebView webView;
+    @FXML
+    private JFXTextArea searchTextArea,showTextArea;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,12 +69,26 @@ public class Controller implements Initializable {
     //Show all words
     private void ShowAll()
     {
-        //ObvervableList of English words
+        //ObservableList of English words
         ObservableList<String> rawList = FXCollections.observableArrayList(getRaw());
         //Add above list to ListView
         listView.setItems(rawList);
     }
 
+    //Show Vietnamese meaning when click at English word
+    @FXML
+    private void getSelectedMeaning(MouseEvent event)
+    {
+        showTextArea.setEditable(false);
+        showTextArea.setText(searchWord(listView.getSelectionModel().getSelectedItem().toString()));
+    }
+
+    @FXML
+    private void getInputMeaning(ActionEvent event)
+    {
+        searchTextArea.setEditable(false);
+        searchTextArea.setText(searchWord(InputSearch.getText()));
+    }
 
     //Close the program when click Exit icon
     @FXML
