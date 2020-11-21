@@ -1,7 +1,7 @@
 package Handling;
 
 /*
- * Class "Entry" is made to define entries's format when export the dictionary to file.
+ * Class "Entry" define entry's format when export the dictionary to file.
  * @Author: Meoki
  */
 

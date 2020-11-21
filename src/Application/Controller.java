@@ -46,7 +46,6 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         connectSQLite();
         ShowAll();
-        System.setProperty("jxbrowser.license.key","1BNDHFSC1FXCRK0MYPNV02XWLA4ZURVFDCEJVSHZLRPHHO724J0SPKCZ2YO1ZMJBFY9Z3I");
     }
 
     //Change Pane with the selected Button
