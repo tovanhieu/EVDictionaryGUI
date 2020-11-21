@@ -17,6 +17,8 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -40,7 +42,9 @@ public class Controller implements Initializable {
     @FXML
     private JFXListView listView;
     @FXML
-    private JFXTextArea searchTextArea, showTextArea, googleTextArea;
+    private JFXTextArea googleTextArea;
+    @FXML
+    private WebView webViewShow,webViewSearch;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -88,16 +92,19 @@ public class Controller implements Initializable {
     //Show Vietnamese meaning when click at English word
     @FXML
     private void getSelectedMeaning(MouseEvent event) {
-        showTextArea.setEditable(false);
-        showTextArea.setText(searchWord(listView.getSelectionModel().getSelectedItem().toString()));
+        //Get engine from WebView
+        WebEngine webEngineShow = webViewShow.getEngine();
+        //Show Vietnamese meaning in WebView area
+        webEngineShow.loadContent(searchWord(listView.getSelectionModel().getSelectedItem().toString()));
     }
 
 
     //Show Vietnamese meaning after inputting an English word in TextField
     @FXML
     private void getInputMeaning(ActionEvent event) {
-        searchTextArea.setEditable(false);
-        searchTextArea.setText(searchWord(InputSearch.getText()));
+        //Comments are same with above method
+        WebEngine webEngineSearch = webViewSearch.getEngine();
+        webEngineSearch.loadContent(searchWord(InputSearch.getText()));
     }
 
 
