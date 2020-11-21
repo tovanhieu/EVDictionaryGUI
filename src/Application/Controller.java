@@ -5,30 +5,28 @@ package Application;
  * @Author: Meoki
  */
 
-import Handling.Dictionary;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextArea;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import org.controlsfx.control.textfield.TextFields;
-import javafx.event.ActionEvent;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static Handling.Dictionary.searchWord;
 import static Handling.Management.*;
-import static Handling.Dictionary.*;
 
 public class Controller implements Initializable {
     @FXML
@@ -48,6 +46,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         connectSQLite();
         ShowAll();
+        System.setProperty("jxbrowser.license.key","1BNDHFSC1FXCRK0MYPNV02XWLA4ZURVFDCEJVSHZLRPHHO724J0SPKCZ2YO1ZMJBFY9Z3I");
     }
 
     //Change Pane with the selected Button
@@ -93,6 +92,7 @@ public class Controller implements Initializable {
         showTextArea.setEditable(false);
         showTextArea.setText(searchWord(listView.getSelectionModel().getSelectedItem().toString()));
     }
+
 
     //Show Vietnamese meaning after inputting an English word in TextField
     @FXML
