@@ -14,7 +14,7 @@ import java.net.URLConnection;
 import javazoom.jl.decoder.JavaLayerException;
 import javazoom.jl.player.Player;
 
-public class Audio {
+public class Voice {
 
     public static InputStream getAudio(String text, String languageOutput)
             throws IOException {

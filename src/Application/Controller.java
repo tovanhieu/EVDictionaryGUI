@@ -31,7 +31,7 @@ import java.util.ResourceBundle;
 import static Handling.Dictionary.*;
 import static Handling.Management.*;
 import static GoogleAPI.Translator.*;
-import static GoogleAPI.Audio.*;
+import static GoogleAPI.Voice.*;
 
 public class Controller implements Initializable {
     @FXML

@@ -112,7 +112,7 @@ public class Management {
 
     public static String aboutInfo() throws IOException
     {
-        File aboutDir = new File("About.md");
+        File aboutDir = new File("About.html");
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(aboutDir), "UTF8"));
         StringBuilder stringBuilder = new StringBuilder();
         while (br.ready()) {
