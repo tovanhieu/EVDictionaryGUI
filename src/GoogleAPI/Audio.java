@@ -1,5 +1,10 @@
 package GoogleAPI;
 
+/*
+ * Class "Audio" handling all about sounds using API...
+ * @Author: Meoki
+ */
+
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;

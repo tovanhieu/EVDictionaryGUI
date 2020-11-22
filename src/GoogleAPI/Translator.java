@@ -1,20 +1,25 @@
 package GoogleAPI;
 
+/*
+ * Class "Translator" handling all about word's Vietnamese meanings using API...
+ * @Author: Meoki
+ */
+
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
+
 import org.json.JSONArray;
 
 public class Translator {
 
     public static String callUrlAndParseResult(String langFrom, String langTo,
-                                        String word) throws Exception
-    {
+                                               String word) throws Exception {
 
-        String url = "https://translate.googleapis.com/translate_a/single?"+
-                "client=gtx&"+
+        String url = "https://translate.googleapis.com/translate_a/single?" +
+                "client=gtx&" +
                 "sl=" + langFrom +
                 "&tl=" + langTo +
                 "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
@@ -24,7 +29,7 @@ public class Translator {
         con.setRequestProperty("User-Agent", "Mozilla/5");
 
         BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream(),"utf8"));
+                new InputStreamReader(con.getInputStream(), "utf8"));
         String inputLine;
         StringBuffer response = new StringBuffer();
 
@@ -35,12 +40,12 @@ public class Translator {
 
         return parseResult(response.toString());
     }
-    public static String callUrlAndParseResult2(String langFrom, String langTo,
-                                         String word) throws Exception
-    {
 
-        String url = "https://translate.googleapis.com/translate_a/single?"+
-                "client=gtx&"+
+    public static String callUrlAndParseResult2(String langFrom, String langTo,
+                                                String word) throws Exception {
+
+        String url = "https://translate.googleapis.com/translate_a/single?" +
+                "client=gtx&" +
                 "sl=" + langFrom +
                 "&tl=" + langTo +
                 "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
@@ -61,8 +66,8 @@ public class Translator {
 
         return parseResult(response.toString());
     }
-    private static String parseResult(String inputJson) throws Exception
-    {
+
+    private static String parseResult(String inputJson) throws Exception {
         JSONArray jsonArray = new JSONArray(inputJson);
         JSONArray jsonArray2 = (JSONArray) jsonArray.get(0);
         JSONArray jsonArray3 = (JSONArray) jsonArray2.get(0);
