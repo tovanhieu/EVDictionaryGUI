@@ -210,7 +210,7 @@
                   <DropShadow color="#b9b3b3" height="27.07" radius="12.2775" width="24.04" />
                </effect>
             </Pane>
-            <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
+            <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0" onKeyPressed="#getSelectedMeaningOnKey" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
                <effect>
                   <DropShadow color="#b9b4b4" height="24.04" radius="10.76" />
                </effect>

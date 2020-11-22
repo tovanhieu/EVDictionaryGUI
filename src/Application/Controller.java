@@ -14,6 +14,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
@@ -105,6 +106,18 @@ public class Controller implements Initializable {
         } else webEngineShow.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
     }
 
+    //Show Vietnamese meaning when switch English word by pressing arrow key on keyboard
+    @FXML
+    private void getSelectedMeaningOnKey(KeyEvent event) {
+        //Get engine from WebView
+        WebEngine webEngineShow = webViewShow.getEngine();
+        //Show Vietnamese meaning in WebView area
+        String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
+        if (selectedMeaning != null) {
+            webEngineShow.loadContent(selectedMeaning);
+        } else webEngineShow.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
+    }
+
 
     //Show Vietnamese meaning after inputting an English word in TextField
     @FXML
@@ -117,24 +130,28 @@ public class Controller implements Initializable {
         } else webEngineSearch.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
     }
 
+    //Get Vietnamese meaning by using GoogleAPI
     @FXML
     private void getGoogleMeaning(ActionEvent event) throws Exception {
         String googleMeaning = callUrlAndParseResult("en", "vi", GoogleSearch.getText());
         googleTextArea.setText(googleMeaning);
     }
 
+    //Get sound by using GoogleAPI at Google Pane
     @FXML
     private void getGoogleSound(MouseEvent event) throws IOException, JavaLayerException {
         InputStream googleSound = getAudio(GoogleSearch.getText(), "en");
         play(googleSound);
     }
 
+    //Get sound by using GoogleAPI at Show Pane
     @FXML
     private void getShowSound(MouseEvent event) throws IOException, JavaLayerException {
         InputStream showSound = getAudio(listView.getSelectionModel().getSelectedItem().toString(), "en");
         play(showSound);
     }
 
+    //Get sound by using GoogleAPI at Search Pane
     @FXML
     private void getSearchSound(MouseEvent event) throws IOException, JavaLayerException {
         InputStream searchSound = getAudio(InputSearch.getText(), "en");
