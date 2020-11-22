@@ -5,9 +5,7 @@ package Application;
  * @Author: Meoki
  */
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXListView;
-import com.jfoenix.controls.JFXTextArea;
+import com.jfoenix.controls.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -41,7 +39,7 @@ public class Controller implements Initializable {
     @FXML
     private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane;
     @FXML
-    private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton;
+    private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton, AddToDict;
     @FXML
     private TextField InputSearch, GoogleSearch;
     @FXML
@@ -50,11 +48,19 @@ public class Controller implements Initializable {
     private JFXTextArea googleTextArea;
     @FXML
     private WebView webViewShow, webViewSearch;
+    @FXML
+    private JFXSlider FontSlider;
+    @FXML
+    private JFXTextField inputEN, inputVI, inputPronoun;
+    @FXML
+    private JFXComboBox chooseType;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         connectSQLite();
         ShowAll();
+        ComboBoxItems();
     }
 
     //Switch Pane with selected Button
@@ -134,14 +140,23 @@ public class Controller implements Initializable {
     @FXML
     private void getGoogleMeaning(ActionEvent event) throws Exception {
         String googleMeaning = callUrlAndParseResult("en", "vi", GoogleSearch.getText());
+        googleTextArea.setEditable(false);
         googleTextArea.setText(googleMeaning);
     }
 
-    //Get sound by using GoogleAPI at Google Pane
+    //Get English sound by using GoogleAPI at Google Pane
     @FXML
-    private void getGoogleSound(MouseEvent event) throws IOException, JavaLayerException {
-        InputStream googleSound = getAudio(GoogleSearch.getText(), "en");
-        play(googleSound);
+    private void getGoogleSound_en(MouseEvent event) throws IOException, JavaLayerException {
+        InputStream googleSoundEN = getAudio(GoogleSearch.getText(), "en");
+        play(googleSoundEN);
+    }
+
+    //Get Vietnamese sound by using GoogleAPI at Google Pane
+    @FXML
+    private void getGoogleSound_vi(MouseEvent event) throws Exception {
+        String viText = callUrlAndParseResult("en", "vi", GoogleSearch.getText());
+        InputStream googleSoundVI = getAudio(viText, "vi");
+        play(googleSoundVI);
     }
 
     //Get sound by using GoogleAPI at Show Pane
@@ -156,6 +171,31 @@ public class Controller implements Initializable {
     private void getSearchSound(MouseEvent event) throws IOException, JavaLayerException {
         InputStream searchSound = getAudio(InputSearch.getText(), "en");
         play(searchSound);
+    }
+
+    //Change font size of Vietnamese meaning
+    @FXML
+    private void getFontChange(MouseEvent event) {
+        googleTextArea.setStyle("-fx-font-size: " + FontSlider.getValue());
+    }
+
+    @FXML
+    private void ComboBoxItems() {
+        String[] items = {"Danh từ","Nội động từ","Ngoại động từ","Tính từ","Trạng từ","Phó từ"};
+        ObservableList<String> itemsList = FXCollections.observableArrayList(items);
+        chooseType.setItems(itemsList);
+    }
+
+    //Add new word to dictionary
+    @FXML
+    private void addToDictionary(MouseEvent event) {
+        //Get right format of Vietnamese meaning
+        String wordSequence = "<html><h1>" + inputEN.getText()
+                + "</h1><h3><i>/" + inputPronoun.getText()
+                + "/</i></h3><h2>" + chooseType.getSelectionModel().getSelectedItem().toString()
+                + "</h2><ul><li>" + inputVI.getText() + "</li></ul></html>";
+        //Add to dictionary
+        addWord(inputEN.getText(), wordSequence);
     }
 
     //Close the program when click Exit icon
