@@ -16,6 +16,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
@@ -173,25 +174,6 @@
             <Image url="@../Image/exit.png" />
          </image>
       </ImageView>
-      <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-      <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <TextField fx:id="InputSearch" focusTraversable="false" layoutX="221.0" layoutY="100.0" onAction="#getInputMeaning" prefHeight="50.0" prefWidth="481.0" promptText="Nhập từ muốn tìm kiếm..." style="-fx-background-radius: 15;" />
-            <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
-               <effect>
-                  <DropShadow color="#bfbcbc" />
-               </effect>
-               <children>
-                  <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="739.0" layoutY="14.0" onMouseClicked="#getSearchSound" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Image/speaker.png" />
-                     </image>
-                  </ImageView>
-                  <WebView fx:id="webViewSearch" focusTraversable="false" layoutX="34.0" layoutY="56.0" prefHeight="398.0" prefWidth="728.0" />
-               </children>
-            </Pane>
-         </children>
-      </Pane>
       <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Pane layoutX="466.0" layoutY="68.0" prefHeight="632.0" prefWidth="350.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
@@ -207,55 +189,13 @@
                   <DropShadow color="#abaaaa" />
                </effect>
             </Pane>
-            <JFXListView fx:id="listView" focusTraversable="false" layoutX="70.0" layoutY="68.0" onKeyPressed="#getSelectedMeaningOnKey" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
+            <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0" onKeyPressed="#getSelectedMeaningOnKey" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
                <effect>
                   <DropShadow color="#b9b4b4" height="20.21" radius="9.8025" />
                </effect>
             </JFXListView>
          </children>
       </Pane>
-      <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <TextField fx:id="GoogleSearch" alignment="CENTER" focusTraversable="false" layoutX="121.0" layoutY="213.0" onAction="#getGoogleMeaning" prefHeight="214.0" prefWidth="668.0" promptText="Nhập từ cần tìm kiếm..." style="-fx-background-radius: 22;">
-               <font>
-                  <Font name="Montserrat SemiBold" size="25.0" />
-               </font>
-               <effect>
-                  <DropShadow color="#aeabab" height="21.01" radius="10.002500000000001" />
-               </effect></TextField>
-            <ImageView fitHeight="106.0" fitWidth="622.0" layoutX="190.0" layoutY="56.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/google-translate.png" />
-               </image>
-            </ImageView>
-            <Pane layoutX="123.0" layoutY="456.0" prefHeight="221.0" prefWidth="668.0" style="-fx-background-color: ffffff; -fx-background-radius: 22;">
-               <effect>
-                  <DropShadow color="#aba8a8" height="21.77" radius="10.192499999999999" />
-               </effect>
-               <children>
-                  <JFXTextArea fx:id="googleTextArea" focusColor="WHITE" focusTraversable="false" layoutX="24.0" layoutY="15.0" prefHeight="193.0" prefWidth="626.0" unFocusColor="WHITE">
-                     <font>
-                        <Font name="Montserrat SemiBold" size="25.0" />
-                     </font></JFXTextArea>
-                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="628.0" layoutY="7.0" onMouseClicked="#getGoogleSound_vi" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Image/speaker.png" />
-                     </image>
-                  </ImageView>
-               </children>
-            </Pane>
-            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="748.0" layoutY="221.0" onMouseClicked="#getGoogleSound_en" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../Image/speaker.png" />
-               </image>
-            </ImageView>
-            <JFXSlider fx:id="FontSlider" focusTraversable="false" layoutX="304.0" layoutY="721.0" onMouseDragged="#getFontChange" prefHeight="15.0" prefWidth="414.0" />
-            <Label focusTraversable="false" layoutX="178.0" layoutY="719.0" text="Change font size" textFill="#797575">
-               <font>
-                  <Font name="Montserrat SemiBold" size="13.0" />
-               </font>
-            </Label>
-         </children></Pane>
       <Pane fx:id="AddPane" layoutX="275.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <Pane layoutX="197.0" layoutY="76.0" prefHeight="602.0" prefWidth="517.0" style="-fx-background-color: ffffff; -fx-background-radius: 25;">
@@ -290,5 +230,111 @@
                </effect>
             </Pane>
          </children></Pane>
+      <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane layoutX="70.0" layoutY="61.0" prefHeight="647.0" prefWidth="761.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+               <effect>
+                  <DropShadow color="#b5b5b5" />
+               </effect>
+               <children>
+                  <WebView fx:id="webViewAbout" layoutX="30.0" layoutY="23.0" prefHeight="602.0" prefWidth="709.0" />
+               </children>
+            </Pane>
+         </children></Pane>
+      <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField fx:id="GoogleSearch" alignment="CENTER" focusTraversable="false" layoutX="121.0" layoutY="135.0" onAction="#getGoogleMeaning" prefHeight="214.0" prefWidth="668.0" promptText="Type the word you are looking for..." style="-fx-background-radius: 22;">
+               <font>
+                  <Font name="Montserrat SemiBold" size="25.0" />
+               </font>
+               <effect>
+                  <DropShadow color="#aeabab" height="21.01" radius="10.002500000000001" />
+               </effect></TextField>
+            <ImageView fitHeight="84.0" fitWidth="517.0" layoutX="245.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/google-translate.png" />
+               </image>
+            </ImageView>
+            <Pane layoutX="123.0" layoutY="378.0" prefHeight="221.0" prefWidth="668.0" style="-fx-background-color: ffffff; -fx-background-radius: 22;">
+               <effect>
+                  <DropShadow color="#aba8a8" height="21.77" radius="10.192499999999999" />
+               </effect>
+               <children>
+                  <JFXTextArea fx:id="googleTextArea" focusColor="WHITE" focusTraversable="false" layoutX="24.0" layoutY="15.0" prefHeight="193.0" prefWidth="626.0" unFocusColor="WHITE">
+                     <font>
+                        <Font name="Montserrat SemiBold" size="25.0" />
+                     </font></JFXTextArea>
+                  <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="628.0" layoutY="7.0" onMouseClicked="#getGoogleSound_vi" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/speaker.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+            <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="748.0" layoutY="142.0" onMouseClicked="#getGoogleSound_en" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Image/speaker.png" />
+               </image>
+            </ImageView>
+            <JFXSlider fx:id="FontSlider" focusTraversable="false" layoutX="304.0" layoutY="653.0" onMouseDragged="#getFontChange" prefHeight="15.0" prefWidth="414.0" />
+            <Label focusTraversable="false" layoutX="178.0" layoutY="651.0" text="Change font size" textFill="#797575">
+               <font>
+                  <Font name="Montserrat SemiBold" size="13.0" />
+               </font>
+            </Label>
+            <Pane layoutX="312.0" layoutY="686.0" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
+               <children>
+                  <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="6.0" layoutY="4.0" onMouseClicked="#clearGoogleInput" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/clear.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <effect>
+                  <DropShadow color="#bcbaba" />
+               </effect>
+            </Pane>
+            <Label focusTraversable="false" layoutX="178.0" layoutY="701.0" text="Clear input search" textFill="#797575">
+               <font>
+                  <Font name="Montserrat SemiBold" size="13.0" />
+               </font>
+            </Label>
+            <Line endX="100.0" layoutX="154.0" layoutY="660.0" scaleX="0.1" startX="-100.0" strokeWidth="0.5" />
+            <Line endX="100.0" layoutX="154.0" layoutY="709.0" scaleX="0.1" startX="-100.0" strokeWidth="0.5" />
+            <Line endX="100.0" layoutX="144.0" layoutY="685.0" rotate="90.0" scaleX="0.25" startX="-100.0" strokeWidth="0.5" />
+         </children></Pane>
+      <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <TextField fx:id="InputSearch" focusTraversable="false" layoutX="221.0" layoutY="100.0" onAction="#getInputMeaning" prefHeight="50.0" prefWidth="481.0" promptText="Type the word you are looking for..." style="-fx-background-radius: 15;">
+               <effect>
+                  <DropShadow color="#c9c9c9" />
+               </effect></TextField>
+            <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+               <effect>
+                  <DropShadow color="#bfbcbc" />
+               </effect>
+               <children>
+                  <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="739.0" layoutY="14.0" onMouseClicked="#getSearchSound" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/speaker.png" />
+                     </image>
+                  </ImageView>
+                  <WebView fx:id="webViewSearch" focusTraversable="false" layoutX="34.0" layoutY="56.0" prefHeight="398.0" prefWidth="728.0" />
+               </children>
+            </Pane>
+            <Pane layoutX="716.0" layoutY="101.0" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
+               <children>
+                  <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="7.0" layoutY="4.0" onMouseClicked="#clearSearchInput" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Image/clear.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <effect>
+                  <DropShadow color="#bcbaba" />
+               </effect>
+            </Pane>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

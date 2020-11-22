@@ -47,7 +47,7 @@ public class Controller implements Initializable {
     @FXML
     private JFXTextArea googleTextArea;
     @FXML
-    private WebView webViewShow, webViewSearch;
+    private WebView webViewShow, webViewSearch, webViewAbout;
     @FXML
     private JFXSlider FontSlider;
     @FXML
@@ -61,6 +61,11 @@ public class Controller implements Initializable {
         connectSQLite();
         ShowAll();
         ComboBoxItems();
+        try {
+            aboutInformation();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     //Switch Pane with selected Button
@@ -124,7 +129,6 @@ public class Controller implements Initializable {
         } else webEngineShow.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
     }
 
-
     //Show Vietnamese meaning after inputting an English word in TextField
     @FXML
     private void getInputMeaning(ActionEvent event) {
@@ -134,6 +138,14 @@ public class Controller implements Initializable {
         if (inputMeaning != null) {
             webEngineSearch.loadContent(inputMeaning);
         } else webEngineSearch.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
+    }
+
+    //Show information about this project read from HTML file
+    @FXML
+    private void aboutInformation() throws IOException {
+        //Get engine from WebView
+        WebEngine webEngineAbout = webViewAbout.getEngine();
+        webEngineAbout.loadContent(aboutInfo());
     }
 
     //Get Vietnamese meaning by using GoogleAPI
@@ -179,16 +191,15 @@ public class Controller implements Initializable {
         googleTextArea.setStyle("-fx-font-size: " + FontSlider.getValue());
     }
 
-    @FXML
     private void ComboBoxItems() {
-        String[] items = {"Danh từ","Nội động từ","Ngoại động từ","Tính từ","Trạng từ","Phó từ"};
+        String[] items = {"Danh từ", "Nội động từ", "Ngoại động từ", "Tính từ", "Trạng từ", "Phó từ"};
         ObservableList<String> itemsList = FXCollections.observableArrayList(items);
         chooseType.setItems(itemsList);
     }
 
     //Add new word to dictionary
     @FXML
-    private void addToDictionary(MouseEvent event) {
+    private void addToDictionary(ActionEvent event) {
         //Get right format of Vietnamese meaning
         String wordSequence = "<html><h1>" + inputEN.getText()
                 + "</h1><h3><i>/" + inputPronoun.getText()
@@ -196,6 +207,20 @@ public class Controller implements Initializable {
                 + "</h2><ul><li>" + inputVI.getText() + "</li></ul></html>";
         //Add to dictionary
         addWord(inputEN.getText(), wordSequence);
+    }
+
+    //Clear Search input and meaning
+    @FXML
+    private void clearSearchInput(MouseEvent event) {
+        InputSearch.clear();
+        webViewSearch.getEngine().loadContent("");
+    }
+
+    //Clear Search input and meaning
+    @FXML
+    private void clearGoogleInput(MouseEvent event) {
+        GoogleSearch.clear();
+        googleTextArea.clear();
     }
 
     //Close the program when click Exit icon

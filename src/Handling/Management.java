@@ -110,6 +110,19 @@ public class Management {
         }
     }
 
+    public static String aboutInfo() throws IOException
+    {
+        File aboutDir = new File("About.md");
+        BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(aboutDir), "UTF8"));
+        StringBuilder stringBuilder = new StringBuilder();
+        while (br.ready()) {
+            stringBuilder.append(br.readLine());
+        }
+        String information = stringBuilder.toString();
+        br.close();
+        return information;
+    }
+
     //Export dictionary to file
     public static void exportDictionary(File directory) throws IOException {
         //Output file directory
