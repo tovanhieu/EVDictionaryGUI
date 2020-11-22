@@ -16,19 +16,6 @@ import javazoom.jl.player.Player;
 
 public class Audio {
 
-    private static Audio audio;
-
-    private Audio() {
-    }
-
-    public synchronized static Audio getInstance() {
-
-        if (audio == null) {
-            audio = new Audio();
-        }
-        return audio;
-    }
-
     public static InputStream getAudio(String text, String languageOutput)
             throws IOException {
         URL url = new URL("http://translate.google.com/translate_tts?ie=UTF-8&tl=" + languageOutput + "&client=tw-ob&q="
