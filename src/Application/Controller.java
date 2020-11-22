@@ -52,7 +52,7 @@ public class Controller implements Initializable {
         ShowAll();
     }
 
-    //Change Pane with the selected Button
+    //Switch Pane with selected Button
     @FXML
     private void handleButtonAction(ActionEvent event) throws IOException {
         if (event.getSource() == SearchButton) {
@@ -107,6 +107,11 @@ public class Controller implements Initializable {
         webEngineSearch.loadContent(searchWord(InputSearch.getText()));
     }
 
+    @FXML
+    private void getGoogleMeaning(ActionEvent event)
+    {
+        
+    }
 
     //Close the program when click Exit icon
     @FXML
