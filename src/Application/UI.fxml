@@ -216,7 +216,7 @@
                      </font>
                   </JFXTextField>
                   <JFXComboBox fx:id="chooseType" focusTraversable="false" layoutX="76.0" layoutY="397.0" prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word" />
-                  <JFXButton fx:id="AddToDict" buttonType="RAISED" focusTraversable="false" layoutX="171.0" layoutY="511.0" onAction="#addToDictionary" prefHeight="50.0" prefWidth="176.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Add to dictionary" textAlignment="CENTER">
+                  <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="171.0" layoutY="511.0" onAction="#addToDictionary" prefHeight="50.0" prefWidth="176.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Add to dictionary" textAlignment="CENTER">
                      <font>
                         <Font name="Montserrat SemiBold" size="15.0" />
                      </font>

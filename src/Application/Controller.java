@@ -39,7 +39,7 @@ public class Controller implements Initializable {
     @FXML
     private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane;
     @FXML
-    private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton, AddToDict;
+    private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton;
     @FXML
     private TextField InputSearch, GoogleSearch;
     @FXML
@@ -114,7 +114,9 @@ public class Controller implements Initializable {
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
         if (selectedMeaning != null) {
             webEngineShow.loadContent(selectedMeaning);
-        } else webEngineShow.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
+        } else {
+            webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
+        }
     }
 
     //Show Vietnamese meaning when switch English word by pressing arrow key on keyboard
@@ -126,7 +128,7 @@ public class Controller implements Initializable {
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
         if (selectedMeaning != null) {
             webEngineShow.loadContent(selectedMeaning);
-        } else webEngineShow.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
+        } else webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
     }
 
     //Show Vietnamese meaning after inputting an English word in TextField
@@ -137,7 +139,7 @@ public class Controller implements Initializable {
         String inputMeaning = searchWord(InputSearch.getText());
         if (inputMeaning != null) {
             webEngineSearch.loadContent(inputMeaning);
-        } else webEngineSearch.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
+        } else webEngineSearch.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
     }
 
     //Show information about this project read from HTML file

@@ -27,11 +27,11 @@ public class Management {
             connect = DriverManager.getConnection(url);
             //Query to get all record from table "av" in database
             String query = "SELECT * FROM av";
-            Statement statetment = null;
-            ResultSet resultSet = null;
+            Statement statement;
+            ResultSet resultSet;
             try {
-                statetment = connect.createStatement();
-                resultSet = statetment.executeQuery(query);
+                statement = connect.createStatement();
+                resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
                     //Get raw word (English)
                     String raw = resultSet.getString("word");
@@ -76,12 +76,12 @@ public class Management {
             //Connect to database
             connect = DriverManager.getConnection(url);
             String query = "SELECT * FROM av";
-            Statement statetment = null;
-            ResultSet resultSet = null;
+            Statement statement;
+            ResultSet resultSet;
             Entry e;
             try {
-                statetment = connect.createStatement();
-                resultSet = statetment.executeQuery(query);
+                statement = connect.createStatement();
+                resultSet = statement.executeQuery(query);
                 while (resultSet.next()) {
                     //Get raw word (English)
                     String id = resultSet.getString("id");
