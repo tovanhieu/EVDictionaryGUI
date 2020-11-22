@@ -99,7 +99,10 @@ public class Controller implements Initializable {
         //Get engine from WebView
         WebEngine webEngineShow = webViewShow.getEngine();
         //Show Vietnamese meaning in WebView area
-        webEngineShow.loadContent(searchWord(listView.getSelectionModel().getSelectedItem().toString()));
+        String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
+        if (selectedMeaning != null) {
+            webEngineShow.loadContent(selectedMeaning);
+        } else webEngineShow.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
     }
 
 
@@ -108,7 +111,10 @@ public class Controller implements Initializable {
     private void getInputMeaning(ActionEvent event) {
         //Comments are same with above method
         WebEngine webEngineSearch = webViewSearch.getEngine();
-        webEngineSearch.loadContent(searchWord(InputSearch.getText()));
+        String inputMeaning = searchWord(InputSearch.getText());
+        if (inputMeaning != null) {
+            webEngineSearch.loadContent(inputMeaning);
+        } else webEngineSearch.loadContent("<html><h2>Tạm thời nghĩa của từ này chưa được cập nhật...</h2></html>");
     }
 
     @FXML
