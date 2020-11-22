@@ -15,21 +15,14 @@ import org.json.JSONArray;
 
 public class Translator {
 
-    public static String callUrlAndParseResult(String langFrom, String langTo,
-                                               String word) throws Exception {
+    public static String callUrlAndParseResult(String langFrom, String langTo, String word) throws Exception {
 
-        String url = "https://translate.googleapis.com/translate_a/single?" +
-                "client=gtx&" +
-                "sl=" + langFrom +
-                "&tl=" + langTo +
-                "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
-
+        String url = "https://translate.googleapis.com/translate_a/single?" + "client=gtx&" + "sl=" + langFrom + "&tl=" + langTo + "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestProperty("User-Agent", "Mozilla/5");
 
-        BufferedReader in = new BufferedReader(
-                new InputStreamReader(con.getInputStream(), "utf8"));
+        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf8"));
         String inputLine;
         StringBuffer response = new StringBuffer();
 
@@ -41,15 +34,9 @@ public class Translator {
         return parseResult(response.toString());
     }
 
-    public static String callUrlAndParseResult2(String langFrom, String langTo,
-                                                String word) throws Exception {
+    public static String callUrlAndParseResult2(String langFrom, String langTo, String word) throws Exception {
 
-        String url = "https://translate.googleapis.com/translate_a/single?" +
-                "client=gtx&" +
-                "sl=" + langFrom +
-                "&tl=" + langTo +
-                "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
-
+        String url = "https://translate.googleapis.com/translate_a/single?" + "client=gtx&" + "sl=" + langFrom + "&tl=" + langTo + "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
         URL obj = new URL(url);
         HttpURLConnection con = (HttpURLConnection) obj.openConnection();
         con.setRequestProperty("User-Agent", "Mozilla/5.0");

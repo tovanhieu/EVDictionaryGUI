@@ -21,6 +21,7 @@ public class Dictionary {
         Dict.put(raw, meaning);
     }
 
+    //Search a word in Dictionary
     public static String searchWord(String raw)
     {
         return Dict.get(raw);

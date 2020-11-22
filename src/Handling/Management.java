@@ -73,6 +73,7 @@ public class Management {
         try {
             //Make a connection and get data, like "connectSQLite" above
             String url = "jdbc:sqlite:EVDatabase.db";
+            //Connect to database
             connect = DriverManager.getConnection(url);
             String query = "SELECT * FROM av";
             Statement statetment = null;
@@ -110,16 +111,24 @@ public class Management {
         }
     }
 
+    //Load HTML text from file to display in About tab pane
     public static String aboutInfo() throws IOException
     {
+        //File directory
         File aboutDir = new File("About.html");
+        //Create new reader
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(aboutDir), "UTF8"));
+        //A StringBuilder to store HTML text
         StringBuilder stringBuilder = new StringBuilder();
+        //While loop for read and store text
         while (br.ready()) {
             stringBuilder.append(br.readLine());
         }
+        //Convert to string
         String information = stringBuilder.toString();
+        //Close reader
         br.close();
+
         return information;
     }
 
@@ -136,6 +145,7 @@ public class Management {
             Entry ex = storeEntry.get(i);
             //Format output entry's format
             String result = "#" + ex.getId() + "\n- " + ex.getWord() + "\t(" + ex.getPronounce() + ")\n- " + ex.getDescription() + "\n";
+            //Write to file
             writer.write(result);
             writer.newLine();
         }
