@@ -12,5 +12,7 @@
     <orderEntry type="library" name="controlsfx-11.0.3" level="application" />
     <orderEntry type="library" name="jfoenix-9.0.10" level="application" />
     <orderEntry type="library" name="sqlite-jdbc-3.32.3.2" level="application" />
+    <orderEntry type="library" name="json-20201115" level="application" />
+    <orderEntry type="library" name="jl1.0" level="application" />
   </component>
 </module>

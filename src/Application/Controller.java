@@ -21,14 +21,18 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javazoom.jl.decoder.JavaLayerException;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static Handling.Dictionary.searchWord;
+import static Handling.Dictionary.*;
 import static Handling.Management.*;
+import static GoogleAPI.Translator.*;
+import static GoogleAPI.Audio.*;
 
 public class Controller implements Initializable {
     @FXML
@@ -44,7 +48,7 @@ public class Controller implements Initializable {
     @FXML
     private JFXTextArea googleTextArea;
     @FXML
-    private WebView webViewShow,webViewSearch;
+    private WebView webViewShow, webViewSearch;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -108,9 +112,27 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void getGoogleMeaning(ActionEvent event)
-    {
-        
+    private void getGoogleMeaning(ActionEvent event) throws Exception {
+        String googleMeaning = callUrlAndParseResult("en", "vi", GoogleSearch.getText());
+        googleTextArea.setText(googleMeaning);
+    }
+
+    @FXML
+    private void getGoogleSound(MouseEvent event) throws IOException, JavaLayerException {
+        InputStream googleSound = getAudio(GoogleSearch.getText(), "en");
+        play(googleSound);
+    }
+
+    @FXML
+    private void getShowSound(MouseEvent event) throws IOException, JavaLayerException {
+        InputStream showSound = getAudio(listView.getSelectionModel().getSelectedItem().toString(), "en");
+        play(showSound);
+    }
+
+    @FXML
+    private void getSearchSound(MouseEvent event) throws IOException, JavaLayerException {
+        InputStream searchSound = getAudio(InputSearch.getText(), "en");
+        play(searchSound);
     }
 
     //Close the program when click Exit icon
