@@ -11,6 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -29,6 +30,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Stack;
 
 import static Handling.Dictionary.*;
 import static Handling.Management.*;
@@ -39,6 +41,8 @@ import static GoogleAPI.Voice.*;
 public class Controller implements Initializable {
     @FXML
     private AnchorPane anchorPane;
+    @FXML
+    private StackPane stackPane;
     @FXML
     private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane;
     @FXML
@@ -163,19 +167,16 @@ public class Controller implements Initializable {
             play(googleSoundEN);
         } else {
             JFXDialogLayout contentGSound_en = new JFXDialogLayout();
-            StackPane lookPane = new StackPane();
             contentGSound_en.setHeading(new Text("OH NO!"));
             contentGSound_en.setBody(new Text("There are nothing for me to pronounce !?"));
-            JFXDialog lookDialog = new JFXDialog(lookPane, contentGSound_en, JFXDialog.DialogTransition.CENTER);
-            anchorPane.getChildren().add(lookPane);
-            AnchorPane.setTopAnchor(lookPane, 350.0);
-            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXDialog EnDialog = new JFXDialog(stackPane, contentGSound_en, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(EnDialog, Pos.CENTER);
             JFXButton ohIsee = new JFXButton("Oh, my bad");
-            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setOnAction(e -> EnDialog.close());
             ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
             ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
             contentGSound_en.setActions(ohIsee);
-            lookDialog.show();
+            EnDialog.show();
         }
     }
 
@@ -189,19 +190,16 @@ public class Controller implements Initializable {
             play(googleSoundVI);
         } else {
             JFXDialogLayout contentGSound_vi = new JFXDialogLayout();
-            StackPane lookPane = new StackPane();
             contentGSound_vi.setHeading(new Text("OH NO!"));
             contentGSound_vi.setBody(new Text("There are nothing for me to pronounce !?"));
-            JFXDialog lookDialog = new JFXDialog(lookPane, contentGSound_vi, JFXDialog.DialogTransition.CENTER);
-            anchorPane.getChildren().add(lookPane);
-            AnchorPane.setTopAnchor(lookPane, 350.0);
-            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXDialog ViDialog = new JFXDialog(stackPane, contentGSound_vi, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(ViDialog,Pos.CENTER);
             JFXButton ohIsee = new JFXButton("Oh, my bad");
-            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setOnAction(e -> ViDialog.close());
             ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
             ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
             contentGSound_vi.setActions(ohIsee);
-            lookDialog.show();
+            ViDialog.show();
         }
     }
 
@@ -214,19 +212,16 @@ public class Controller implements Initializable {
             play(showSound);
         } else {
             JFXDialogLayout contentShowSound = new JFXDialogLayout();
-            StackPane lookPane = new StackPane();
             contentShowSound.setHeading(new Text("OH NO!"));
             contentShowSound.setBody(new Text("There are nothing for me to pronounce !?"));
-            JFXDialog lookDialog = new JFXDialog(lookPane, contentShowSound, JFXDialog.DialogTransition.CENTER);
-            anchorPane.getChildren().add(lookPane);
-            AnchorPane.setTopAnchor(lookPane, 350.0);
-            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXDialog showSound = new JFXDialog(stackPane, contentShowSound, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(showSound,Pos.CENTER);
             JFXButton ohIsee = new JFXButton("Oh, my bad");
-            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setOnAction(e -> showSound.close());
             ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
             ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
             contentShowSound.setActions(ohIsee);
-            lookDialog.show();
+            showSound.show();
         }
 
     }
@@ -240,19 +235,16 @@ public class Controller implements Initializable {
             play(searchSound);
         } else {
             JFXDialogLayout contentSearchSound = new JFXDialogLayout();
-            StackPane lookPane = new StackPane();
             contentSearchSound.setHeading(new Text("OH NO!"));
             contentSearchSound.setBody(new Text("There are nothing for me to pronounce !?"));
-            JFXDialog lookDialog = new JFXDialog(lookPane, contentSearchSound, JFXDialog.DialogTransition.CENTER);
-            anchorPane.getChildren().add(lookPane);
-            AnchorPane.setTopAnchor(lookPane, 350.0);
-            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXDialog searchSound = new JFXDialog(stackPane, contentSearchSound, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(searchSound,Pos.CENTER);
             JFXButton ohIsee = new JFXButton("Oh, my bad");
-            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setOnAction(e -> searchSound.close());
             ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
             ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
             contentSearchSound.setActions(ohIsee);
-            lookDialog.show();
+            searchSound.show();
         }
     }
 
@@ -301,34 +293,28 @@ public class Controller implements Initializable {
         //You can only delete if you have inputted  a word in TextField
         if (!InputSearch.getText().isEmpty()) {
             JFXDialogLayout contentSearch = new JFXDialogLayout();
-            StackPane stackPane = new StackPane();
-            anchorPane.getChildren().add(stackPane);
-            AnchorPane.setTopAnchor(stackPane, 300.0);
-            AnchorPane.setLeftAnchor(stackPane, 400.0);
             contentSearch.setHeading(new Text("WARNING !!!"));
             contentSearch.setBody(new Text("You are going to delete a word from dictionary...\nAre you sure?"));
-            JFXDialog dialog = new JFXDialog(stackPane, contentSearch, JFXDialog.DialogTransition.CENTER);
+            JFXDialog delSearch = new JFXDialog(stackPane, contentSearch, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(delSearch,Pos.CENTER);
             JFXButton cancel = new JFXButton("No, my bad");
             JFXButton accept = new JFXButton("Yes, sure");
-            cancel.setOnAction(e -> dialog.close());
+            cancel.setOnAction(e -> delSearch.close());
             accept.setOnAction(e -> {
                 deleteWord(InputSearch.getText());
                 InputSearch.clear();
                 webViewSearch.getEngine().loadContent("");
-                dialog.close();
+                delSearch.close();
             });
             contentSearch.setActions(cancel);
             contentSearch.setActions(accept);
-            dialog.show();
+            delSearch.show();
         } else {
             JFXDialogLayout content = new JFXDialogLayout();
-            StackPane lookPane = new StackPane();
             content.setHeading(new Text("LOOK!"));
             content.setBody(new Text("You are trying to delete nothing... Try again !"));
-            JFXDialog lookDialog = new JFXDialog(lookPane, content, JFXDialog.DialogTransition.CENTER);
-            anchorPane.getChildren().add(lookPane);
-            AnchorPane.setTopAnchor(lookPane, 350.0);
-            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXDialog lookDialog = new JFXDialog(stackPane, content, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(lookDialog,Pos.CENTER);
             JFXButton ohIsee = new JFXButton("Oh, I see");
             ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
             ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
@@ -343,41 +329,35 @@ public class Controller implements Initializable {
     private void deleteShow(MouseEvent event) {
         //You can only delete if you are choosing 1 word from ListView
         if (listView.getSelectionModel().getSelectedIndex() != -1) {
-            StackPane stackPane = new StackPane();
-            anchorPane.getChildren().add(stackPane);
             JFXDialogLayout contentShow = new JFXDialogLayout();
-            AnchorPane.setLeftAnchor(stackPane, 400.0);
-            AnchorPane.setTopAnchor(stackPane, 300.0);
             contentShow.setHeading(new Text("WARNING!!!"));
             contentShow.setBody(new Text("You are going to delete a word from dictionary...\nAre you sure !?"));
-            JFXDialog dialog = new JFXDialog(stackPane, contentShow, JFXDialog.DialogTransition.CENTER);
+            JFXDialog delShow = new JFXDialog(stackPane, contentShow, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(delShow,Pos.CENTER);
             JFXButton cancel = new JFXButton("No, my bad");
             JFXButton accept = new JFXButton("Yes, sure");
-            cancel.setOnAction(e -> dialog.close());
+            cancel.setOnAction(e -> delShow.close());
             accept.setOnAction(e -> {
                 deleteWord(listView.getSelectionModel().getSelectedItem().toString());
                 webViewShow.getEngine().loadContent("");
                 listView.getItems().remove(listView.getSelectionModel().getSelectedIndex());
-                dialog.close();
+                delShow.close();
             });
             contentShow.setActions(cancel);
             contentShow.setActions(accept);
-            dialog.show();
+            delShow.show();
         } else {
             JFXDialogLayout content = new JFXDialogLayout();
-            StackPane lookPane = new StackPane();
             content.setHeading(new Text("LOOK!"));
             content.setBody(new Text("You didn't choose any words to delete... Try again !"));
-            JFXDialog lookDialog = new JFXDialog(lookPane, content, JFXDialog.DialogTransition.CENTER);
-            anchorPane.getChildren().add(lookPane);
-            AnchorPane.setTopAnchor(lookPane, 300.0);
-            AnchorPane.setLeftAnchor(lookPane, 400.0);
+            JFXDialog delShow = new JFXDialog(stackPane, content, JFXDialog.DialogTransition.CENTER);
+            StackPane.setAlignment(delShow,Pos.CENTER);
             JFXButton ohIsee = new JFXButton("Oh, I see");
             ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
             ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
-            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setOnAction(e -> delShow.close());
             content.setActions(ohIsee);
-            lookDialog.show();
+            delShow.show();
         }
     }
 
@@ -392,19 +372,16 @@ public class Controller implements Initializable {
         //Make sure if you want close program
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         JFXDialogLayout contentClose = new JFXDialogLayout();
-        StackPane lookPane = new StackPane();
         contentClose.setHeading(new Text("BE CAREFUL!"));
         contentClose.setBody(new Text("Are you sure to exit program !?"));
-        JFXDialog lookDialog = new JFXDialog(lookPane, contentClose, JFXDialog.DialogTransition.CENTER);
-        anchorPane.getChildren().add(lookPane);
-        AnchorPane.setTopAnchor(lookPane, 350.0);
-        AnchorPane.setLeftAnchor(lookPane, 500.0);
+        JFXDialog exitDialog = new JFXDialog(stackPane, contentClose, JFXDialog.DialogTransition.CENTER);
+        StackPane.setAlignment(exitDialog,Pos.CENTER);
         JFXButton ohIsee = new JFXButton("Yes, sure");
         ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
         ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
         ohIsee.setOnAction(e -> stage.close());
         contentClose.setActions(ohIsee);
-        lookDialog.show();
+        exitDialog.show();
     }
 
 }
