@@ -157,30 +157,103 @@ public class Controller implements Initializable {
     //Get English sound by using GoogleAPI at Google Pane
     @FXML
     private void getGoogleSound_en(MouseEvent event) throws IOException, JavaLayerException {
-        InputStream googleSoundEN = getAudio(GoogleSearch.getText(), "en");
-        play(googleSoundEN);
+        //I can only pronounce a word if you input it
+        if (!GoogleSearch.getText().isEmpty()) {
+            InputStream googleSoundEN = getAudio(GoogleSearch.getText(), "en");
+            play(googleSoundEN);
+        } else {
+            JFXDialogLayout contentGSound_en = new JFXDialogLayout();
+            StackPane lookPane = new StackPane();
+            contentGSound_en.setHeading(new Text("OH NO!"));
+            contentGSound_en.setBody(new Text("There are nothing for me to pronounce !?"));
+            JFXDialog lookDialog = new JFXDialog(lookPane, contentGSound_en, JFXDialog.DialogTransition.CENTER);
+            anchorPane.getChildren().add(lookPane);
+            AnchorPane.setTopAnchor(lookPane, 350.0);
+            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXButton ohIsee = new JFXButton("Oh, my bad");
+            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
+            ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
+            contentGSound_en.setActions(ohIsee);
+            lookDialog.show();
+        }
     }
 
     //Get Vietnamese sound by using GoogleAPI at Google Pane
     @FXML
     private void getGoogleSound_vi(MouseEvent event) throws Exception {
-        String viText = callUrlAndParseResult("en", "vi", GoogleSearch.getText());
-        InputStream googleSoundVI = getAudio(viText, "vi");
-        play(googleSoundVI);
+        //I can only pronounce a word if you input it
+        if (!GoogleSearch.getText().isEmpty()) {
+            String viText = callUrlAndParseResult("en", "vi", GoogleSearch.getText());
+            InputStream googleSoundVI = getAudio(viText, "vi");
+            play(googleSoundVI);
+        } else {
+            JFXDialogLayout contentGSound_vi = new JFXDialogLayout();
+            StackPane lookPane = new StackPane();
+            contentGSound_vi.setHeading(new Text("OH NO!"));
+            contentGSound_vi.setBody(new Text("There are nothing for me to pronounce !?"));
+            JFXDialog lookDialog = new JFXDialog(lookPane, contentGSound_vi, JFXDialog.DialogTransition.CENTER);
+            anchorPane.getChildren().add(lookPane);
+            AnchorPane.setTopAnchor(lookPane, 350.0);
+            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXButton ohIsee = new JFXButton("Oh, my bad");
+            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
+            ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
+            contentGSound_vi.setActions(ohIsee);
+            lookDialog.show();
+        }
     }
 
     //Get sound by using GoogleAPI at Show Pane
     @FXML
     private void getShowSound(MouseEvent event) throws IOException, JavaLayerException {
-        InputStream showSound = getAudio(listView.getSelectionModel().getSelectedItem().toString(), "en");
-        play(showSound);
+        //I can only pronounce a word if you select it
+        if (listView.getSelectionModel().getSelectedIndex() != -1) {
+            InputStream showSound = getAudio(listView.getSelectionModel().getSelectedItem().toString(), "en");
+            play(showSound);
+        } else {
+            JFXDialogLayout contentShowSound = new JFXDialogLayout();
+            StackPane lookPane = new StackPane();
+            contentShowSound.setHeading(new Text("OH NO!"));
+            contentShowSound.setBody(new Text("There are nothing for me to pronounce !?"));
+            JFXDialog lookDialog = new JFXDialog(lookPane, contentShowSound, JFXDialog.DialogTransition.CENTER);
+            anchorPane.getChildren().add(lookPane);
+            AnchorPane.setTopAnchor(lookPane, 350.0);
+            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXButton ohIsee = new JFXButton("Oh, my bad");
+            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
+            ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
+            contentShowSound.setActions(ohIsee);
+            lookDialog.show();
+        }
+
     }
 
     //Get sound by using GoogleAPI at Search Pane
     @FXML
     private void getSearchSound(MouseEvent event) throws IOException, JavaLayerException {
-        InputStream searchSound = getAudio(InputSearch.getText(), "en");
-        play(searchSound);
+        //I can only pronounce a word if you input it
+        if (!InputSearch.getText().isEmpty()) {
+            InputStream searchSound = getAudio(InputSearch.getText(), "en");
+            play(searchSound);
+        } else {
+            JFXDialogLayout contentSearchSound = new JFXDialogLayout();
+            StackPane lookPane = new StackPane();
+            contentSearchSound.setHeading(new Text("OH NO!"));
+            contentSearchSound.setBody(new Text("There are nothing for me to pronounce !?"));
+            JFXDialog lookDialog = new JFXDialog(lookPane, contentSearchSound, JFXDialog.DialogTransition.CENTER);
+            anchorPane.getChildren().add(lookPane);
+            AnchorPane.setTopAnchor(lookPane, 350.0);
+            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXButton ohIsee = new JFXButton("Oh, my bad");
+            ohIsee.setOnAction(e -> lookDialog.close());
+            ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
+            ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
+            contentSearchSound.setActions(ohIsee);
+            lookDialog.show();
+        }
     }
 
     //Change font size of Vietnamese meaning
@@ -189,6 +262,7 @@ public class Controller implements Initializable {
         googleTextArea.setStyle("-fx-font-size: " + FontSlider.getValue());
     }
 
+    //Set items of combobox when you want to add a word to dictionary
     private void ComboBoxItems() {
         String[] items = {"Danh từ", "Nội động từ", "Ngoại động từ", "Tính từ", "Trạng từ", "Phó từ"};
         ObservableList<String> itemsList = FXCollections.observableArrayList(items);
@@ -256,6 +330,8 @@ public class Controller implements Initializable {
             AnchorPane.setTopAnchor(lookPane, 350.0);
             AnchorPane.setLeftAnchor(lookPane, 500.0);
             JFXButton ohIsee = new JFXButton("Oh, I see");
+            ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
+            ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
             ohIsee.setOnAction(e -> lookDialog.close());
             content.setActions(ohIsee);
             lookDialog.show();
@@ -297,6 +373,8 @@ public class Controller implements Initializable {
             AnchorPane.setTopAnchor(lookPane, 300.0);
             AnchorPane.setLeftAnchor(lookPane, 400.0);
             JFXButton ohIsee = new JFXButton("Oh, I see");
+            ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
+            ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
             ohIsee.setOnAction(e -> lookDialog.close());
             content.setActions(ohIsee);
             lookDialog.show();
@@ -311,16 +389,19 @@ public class Controller implements Initializable {
     //Close the program when click Exit icon
     @FXML
     private void CloseButton(MouseEvent event) {
+        //Make sure if you want close program
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         JFXDialogLayout contentClose = new JFXDialogLayout();
         StackPane lookPane = new StackPane();
         contentClose.setHeading(new Text("BE CAREFUL!"));
-        contentClose.setBody(new Text("Are you sure exit program !?"));
+        contentClose.setBody(new Text("Are you sure to exit program !?"));
         JFXDialog lookDialog = new JFXDialog(lookPane, contentClose, JFXDialog.DialogTransition.CENTER);
         anchorPane.getChildren().add(lookPane);
         AnchorPane.setTopAnchor(lookPane, 350.0);
         AnchorPane.setLeftAnchor(lookPane, 500.0);
         JFXButton ohIsee = new JFXButton("Yes, sure");
+        ohIsee.setButtonType(JFXButton.ButtonType.RAISED);
+        ohIsee.setStyle("-fx-background-color: #2296F2;-fx-text-fill:  #ffffff;");
         ohIsee.setOnAction(e -> stage.close());
         contentClose.setActions(ohIsee);
         lookDialog.show();

@@ -33,7 +33,7 @@
                </VBox.margin>
             </ImageView>
             <ImageView fitHeight="84.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true" />
-            <JFXButton fx:id="SearchButton" alignment="BASELINE_LEFT" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96f" stylesheets="@../Utils/Button.css" text="   Search">
+            <JFXButton fx:id="SearchButton" alignment="BASELINE_LEFT" focusTraversable="false" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96f" stylesheets="@../Utils/Button.css" text="   Search">
                <graphic>
                   <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -54,7 +54,7 @@
                   <Tooltip text="Tìm kiếm từ vựng" />
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="ShowButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="10.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96e" stylesheets="@../Utils/Button.css" text="   Show all words">
+            <JFXButton fx:id="ShowButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="10.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96e" stylesheets="@../Utils/Button.css" text="   Show all words">
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -75,7 +75,7 @@
                   <Tooltip text="Hiển thị tất cả từ trong từ điển" />
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="AddButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="73.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6fc96d" stylesheets="@../Utils/Button.css" text="   Add more words">
+            <JFXButton fx:id="AddButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="73.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6fc96d" stylesheets="@../Utils/Button.css" text="   Add more words">
                <graphic>
                   <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -96,7 +96,7 @@
                   <Tooltip text="Thêm các từ mà từ điển chưa có" />
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="ExportButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
+            <JFXButton fx:id="ExportButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
                <graphic>
                   <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -117,7 +117,7 @@
                   <Tooltip text="Xuất dữ liệu từ điển ra file" />
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="GoogleButton" alignment="BASELINE_LEFT" layoutX="10.0" layoutY="199.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="   Google Translate">
+            <JFXButton fx:id="GoogleButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="199.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="   Google Translate">
                <graphic>
                   <ImageView fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -138,7 +138,7 @@
                   <Tooltip text="Tra từ sử dụng Google Dịch" />
                </tooltip>
             </JFXButton>
-            <JFXButton fx:id="AboutButton" alignment="BASELINE_LEFT" graphicTextGap="13.0" layoutX="10.0" layoutY="526.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="About">
+            <JFXButton fx:id="AboutButton" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="13.0" layoutX="10.0" layoutY="526.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="About">
                <graphic>
                   <ImageView fitHeight="40.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                      <image>
