@@ -22,9 +22,11 @@ public class Dictionary {
     }
 
     //Search a word in Dictionary
-    public static String searchWord(String raw)
-    {
+    public static String searchWord(String raw) {
         return Dict.get(raw);
     }
+
+    //Delete a word in Dictionary
+    public static void deleteWord(String raw) { Dict.remove(raw);}
 
 }

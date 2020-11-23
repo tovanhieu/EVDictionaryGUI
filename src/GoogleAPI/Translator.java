@@ -18,9 +18,9 @@ public class Translator {
     public static String callUrlAndParseResult(String langFrom, String langTo, String word) throws Exception {
         String url = "https://translate.googleapis.com/translate_a/single?" + "client=gtx&" + "sl=" + langFrom + "&tl=" + langTo + "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
         URL obj = new URL(url);
-        HttpURLConnection con = (HttpURLConnection) obj.openConnection();
-        con.setRequestProperty("User-Agent", "Mozilla/5");
-        BufferedReader in = new BufferedReader(new InputStreamReader(con.getInputStream(), "utf8"));
+        HttpURLConnection connection = (HttpURLConnection) obj.openConnection();
+        connection.setRequestProperty("User-Agent", "Mozilla/5");
+        BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "utf8"));
         String inputLine;
         StringBuffer response = new StringBuffer();
         while ((inputLine = in.readLine()) != null) {

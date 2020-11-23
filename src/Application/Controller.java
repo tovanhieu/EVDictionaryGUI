@@ -16,6 +16,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
@@ -33,6 +35,7 @@ import static Handling.Management.*;
 import static GoogleAPI.Translator.*;
 import static GoogleAPI.Voice.*;
 
+@SuppressWarnings("ALL")
 public class Controller implements Initializable {
     @FXML
     private AnchorPane anchorPane;
@@ -90,10 +93,8 @@ public class Controller implements Initializable {
             Stage stage = (Stage) anchorPane.getScene().getWindow();
             //Open dialog to choose where to save file
             File file = fileChooser.showSaveDialog(stage);
-            if (file != null) {
-                //Write data to file
-                exportDictionary(file);
-            }
+            //Write data to file
+            if (file != null) exportDictionary(file);
         }
     }
 
@@ -112,11 +113,8 @@ public class Controller implements Initializable {
         WebEngine webEngineShow = webViewShow.getEngine();
         //Show Vietnamese meaning in WebView area
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
-        if (selectedMeaning != null) {
-            webEngineShow.loadContent(selectedMeaning);
-        } else {
-            webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
-        }
+        if (selectedMeaning != null) webEngineShow.loadContent(selectedMeaning);
+        else webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
     }
 
     //Show Vietnamese meaning when switch English word by pressing arrow key on keyboard
@@ -126,9 +124,8 @@ public class Controller implements Initializable {
         WebEngine webEngineShow = webViewShow.getEngine();
         //Show Vietnamese meaning in WebView area
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
-        if (selectedMeaning != null) {
-            webEngineShow.loadContent(selectedMeaning);
-        } else webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
+        if (selectedMeaning != null) webEngineShow.loadContent(selectedMeaning);
+        else webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
     }
 
     //Show Vietnamese meaning after inputting an English word in TextField
@@ -137,9 +134,8 @@ public class Controller implements Initializable {
         //Comments are same with above method
         WebEngine webEngineSearch = webViewSearch.getEngine();
         String inputMeaning = searchWord(InputSearch.getText());
-        if (inputMeaning != null) {
-            webEngineSearch.loadContent(inputMeaning);
-        } else webEngineSearch.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
+        if (inputMeaning != null) webEngineSearch.loadContent(inputMeaning);
+        else webEngineSearch.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
     }
 
     //Show information about this project read from HTML file
@@ -218,18 +214,116 @@ public class Controller implements Initializable {
         webViewSearch.getEngine().loadContent("");
     }
 
-    //Clear Search input and meaning
+    //Clear Google input and meaning
     @FXML
     private void clearGoogleInput(MouseEvent event) {
         GoogleSearch.clear();
         googleTextArea.clear();
     }
 
+    //Delete word from Search Pane
+    @FXML
+    private void deleteSearch(MouseEvent event) {
+        //You can only delete if you have inputted  a word in TextField
+        if (!InputSearch.getText().isEmpty()) {
+            JFXDialogLayout contentSearch = new JFXDialogLayout();
+            StackPane stackPane = new StackPane();
+            anchorPane.getChildren().add(stackPane);
+            AnchorPane.setTopAnchor(stackPane, 300.0);
+            AnchorPane.setLeftAnchor(stackPane, 400.0);
+            contentSearch.setHeading(new Text("WARNING !!!"));
+            contentSearch.setBody(new Text("You are going to delete a word from dictionary...\nAre you sure?"));
+            JFXDialog dialog = new JFXDialog(stackPane, contentSearch, JFXDialog.DialogTransition.CENTER);
+            JFXButton cancel = new JFXButton("No, my bad");
+            JFXButton accept = new JFXButton("Yes, sure");
+            cancel.setOnAction(e -> dialog.close());
+            accept.setOnAction(e -> {
+                deleteWord(InputSearch.getText());
+                InputSearch.clear();
+                webViewSearch.getEngine().loadContent("");
+                dialog.close();
+            });
+            contentSearch.setActions(cancel);
+            contentSearch.setActions(accept);
+            dialog.show();
+        } else {
+            JFXDialogLayout content = new JFXDialogLayout();
+            StackPane lookPane = new StackPane();
+            content.setHeading(new Text("LOOK!"));
+            content.setBody(new Text("You are trying to delete nothing... Try again !"));
+            JFXDialog lookDialog = new JFXDialog(lookPane, content, JFXDialog.DialogTransition.CENTER);
+            anchorPane.getChildren().add(lookPane);
+            AnchorPane.setTopAnchor(lookPane, 350.0);
+            AnchorPane.setLeftAnchor(lookPane, 500.0);
+            JFXButton ohIsee = new JFXButton("Oh, I see");
+            ohIsee.setOnAction(e -> lookDialog.close());
+            content.setActions(ohIsee);
+            lookDialog.show();
+        }
+    }
+
+    //Delete word from Show Pane
+    @FXML
+    private void deleteShow(MouseEvent event) {
+        //You can only delete if you are choosing 1 word from ListView
+        if (listView.getSelectionModel().getSelectedIndex() != -1) {
+            StackPane stackPane = new StackPane();
+            anchorPane.getChildren().add(stackPane);
+            JFXDialogLayout contentShow = new JFXDialogLayout();
+            AnchorPane.setLeftAnchor(stackPane, 400.0);
+            AnchorPane.setTopAnchor(stackPane, 300.0);
+            contentShow.setHeading(new Text("WARNING!!!"));
+            contentShow.setBody(new Text("You are going to delete a word from dictionary...\nAre you sure !?"));
+            JFXDialog dialog = new JFXDialog(stackPane, contentShow, JFXDialog.DialogTransition.CENTER);
+            JFXButton cancel = new JFXButton("No, my bad");
+            JFXButton accept = new JFXButton("Yes, sure");
+            cancel.setOnAction(e -> dialog.close());
+            accept.setOnAction(e -> {
+                deleteWord(listView.getSelectionModel().getSelectedItem().toString());
+                webViewShow.getEngine().loadContent("");
+                listView.getItems().remove(listView.getSelectionModel().getSelectedIndex());
+                dialog.close();
+            });
+            contentShow.setActions(cancel);
+            contentShow.setActions(accept);
+            dialog.show();
+        } else {
+            JFXDialogLayout content = new JFXDialogLayout();
+            StackPane lookPane = new StackPane();
+            content.setHeading(new Text("LOOK!"));
+            content.setBody(new Text("You didn't choose any words to delete... Try again !"));
+            JFXDialog lookDialog = new JFXDialog(lookPane, content, JFXDialog.DialogTransition.CENTER);
+            anchorPane.getChildren().add(lookPane);
+            AnchorPane.setTopAnchor(lookPane, 300.0);
+            AnchorPane.setLeftAnchor(lookPane, 400.0);
+            JFXButton ohIsee = new JFXButton("Oh, I see");
+            ohIsee.setOnAction(e -> lookDialog.close());
+            content.setActions(ohIsee);
+            lookDialog.show();
+        }
+    }
+
+    @FXML
+    private void alertWarning() {
+
+    }
+
     //Close the program when click Exit icon
     @FXML
     private void CloseButton(MouseEvent event) {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
-        stage.close();
+        JFXDialogLayout contentClose = new JFXDialogLayout();
+        StackPane lookPane = new StackPane();
+        contentClose.setHeading(new Text("BE CAREFUL!"));
+        contentClose.setBody(new Text("Are you sure exit program !?"));
+        JFXDialog lookDialog = new JFXDialog(lookPane, contentClose, JFXDialog.DialogTransition.CENTER);
+        anchorPane.getChildren().add(lookPane);
+        AnchorPane.setTopAnchor(lookPane, 350.0);
+        AnchorPane.setLeftAnchor(lookPane, 500.0);
+        JFXButton ohIsee = new JFXButton("Yes, sure");
+        ohIsee.setOnAction(e -> stage.close());
+        contentClose.setActions(ohIsee);
+        lookDialog.show();
     }
 
 }
