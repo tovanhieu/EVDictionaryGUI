@@ -29,4 +29,7 @@ public class Dictionary {
     //Delete a word in Dictionary
     public static void deleteWord(String raw) { Dict.remove(raw);}
 
+    //Edit a word in Dictionary
+    public static void editWord(String raw, String meaning) { Dict.replace(raw,meaning);}
+
 }
