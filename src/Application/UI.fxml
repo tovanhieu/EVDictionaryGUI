@@ -7,6 +7,7 @@
 <?import com.jfoenix.controls.JFXTextArea?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Tooltip?>
@@ -40,7 +41,10 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXComboBox fx:id="chooseEditType" focusTraversable="false" layoutX="76.0" layoutY="397.0" prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word" />
+            <JFXComboBox fx:id="chooseEditType" focusTraversable="false" layoutX="76.0" layoutY="397.0" prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></JFXComboBox>
             <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="128.0" layoutY="511.0" onAction="#editWords" prefHeight="50.0" prefWidth="131.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Apply edition" textAlignment="CENTER">
                <font>
                   <Font name="Montserrat SemiBold" size="15.0" />
@@ -48,6 +52,9 @@
                <effect>
                   <DropShadow color="#a1a0a0" />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
             </JFXButton>
             <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="301.0" layoutY="511.0" onAction="#Cancel" prefHeight="50.0" prefWidth="131.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Cancel" textAlignment="CENTER">
                <font>
@@ -56,6 +63,9 @@
                <effect>
                   <DropShadow color="#a1a0a0" />
                </effect>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
             </JFXButton>
          </children>
          <effect>
@@ -75,8 +85,14 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="noExit" buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit" stylesheets="@../Utils/JFX.css" text="No, my bad" />
-            <JFXButton fx:id="yesExit" buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit" stylesheets="@../Utils/JFX.css" text="Yes, sure" />
+            <JFXButton fx:id="noExit" buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit" stylesheets="@../Utils/JFX.css" text="No, my bad">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></JFXButton>
+            <JFXButton fx:id="yesExit" buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit" stylesheets="@../Utils/JFX.css" text="Yes, sure">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></JFXButton>
             <Label layoutX="26.0" layoutY="21.0" text="BE CAREFUL !">
                <font>
                   <Font name="Montserrat Black" size="17.0" />
@@ -97,8 +113,14 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDelete" stylesheets="@../Utils/JFX.css" text="No, my bad" />
-            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDelete" stylesheets="@../Utils/JFX.css" text="Yes, sure" />
+            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDelete" stylesheets="@../Utils/JFX.css" text="No, my bad">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDelete" stylesheets="@../Utils/JFX.css" text="Yes, sure">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></JFXButton>
             <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
                <font>
                   <Font name="Montserrat Black" size="17.0" />
@@ -124,8 +146,14 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDeleteShow" stylesheets="@../Utils/JFX.css" text="No, my bad" />
-            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDeleteShow" stylesheets="@../Utils/JFX.css" text="Yes, sure" />
+            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDeleteShow" stylesheets="@../Utils/JFX.css" text="No, my bad">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDeleteShow" stylesheets="@../Utils/JFX.css" text="Yes, sure">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor></JFXButton>
             <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
                <font>
                   <Font name="Montserrat Black" size="17.0" />
@@ -174,6 +202,9 @@
                             <tooltip>
                                 <Tooltip text="Tìm kiếm từ vựng" />
                             </tooltip>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                         </JFXButton>
                         <JFXButton fx:id="ShowButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="10.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96e" stylesheets="@../Utils/Button.css" text="   Show all words">
                             <graphic>
@@ -195,6 +226,9 @@
                             <tooltip>
                                 <Tooltip text="Hiển thị tất cả từ trong từ điển" />
                             </tooltip>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                         </JFXButton>
                         <JFXButton fx:id="AddButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="73.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6fc96d" stylesheets="@../Utils/Button.css" text="   Add more words">
                             <graphic>
@@ -216,6 +250,9 @@
                             <tooltip>
                                 <Tooltip text="Thêm các từ mà từ điển chưa có" />
                             </tooltip>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                         </JFXButton>
                         <JFXButton fx:id="ExportButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
                             <graphic>
@@ -237,6 +274,9 @@
                             <tooltip>
                                 <Tooltip text="Xuất dữ liệu từ điển ra file" />
                             </tooltip>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                         </JFXButton>
                         <JFXButton fx:id="GoogleButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="199.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="   Google Translate">
                             <graphic>
@@ -258,6 +298,9 @@
                             <tooltip>
                                 <Tooltip text="Tra từ sử dụng Google Dịch" />
                             </tooltip>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                         </JFXButton>
                         <JFXButton fx:id="AboutButton" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="13.0" layoutX="10.0" layoutY="526.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="About">
                             <graphic>
@@ -276,6 +319,9 @@
                             <tooltip>
                                 <Tooltip text="Thông tin về tác giả và các thư viện, plugins, dependencies được áp dụng" />
                             </tooltip>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                         </JFXButton>
                         <Label alignment="CENTER" prefHeight="16.0" prefWidth="265.0" text="Version 1.0" textFill="#3271b9">
                             <tooltip>
@@ -294,6 +340,9 @@
                     <image>
                         <Image url="@../Image/exit.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
                 </ImageView>
                 <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
@@ -336,6 +385,9 @@
                                     <image>
                                         <Image url="@../Image/speaker.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                             </children>
                         </Pane>
@@ -343,8 +395,14 @@
                             <image>
                                 <Image url="@../Image/speaker.png" />
                             </image>
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor>
                         </ImageView>
-                        <JFXSlider fx:id="FontSlider" focusTraversable="false" layoutX="304.0" layoutY="653.0" onMouseDragged="#getFontChange" prefHeight="15.0" prefWidth="414.0" />
+                        <JFXSlider fx:id="FontSlider" focusTraversable="false" layoutX="304.0" layoutY="653.0" onMouseDragged="#getFontChange" prefHeight="15.0" prefWidth="414.0">
+                     <cursor>
+                        <Cursor fx:constant="OPEN_HAND" />
+                     </cursor></JFXSlider>
                         <Label focusTraversable="false" layoutX="178.0" layoutY="651.0" text="Change font size" textFill="#797575">
                             <font>
                                 <Font name="Montserrat SemiBold" size="13.0" />
@@ -356,6 +414,9 @@
                                     <image>
                                         <Image url="@../Image/clear.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                             </children>
                             <effect>
@@ -391,7 +452,10 @@
                                         <Font size="15.0" />
                                     </font>
                                 </JFXTextField>
-                                <JFXComboBox fx:id="chooseType" focusTraversable="false" layoutX="76.0" layoutY="397.0" prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word" />
+                                <JFXComboBox fx:id="chooseType" focusTraversable="false" layoutX="76.0" layoutY="397.0" prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word">
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor></JFXComboBox>
                                 <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="171.0" layoutY="511.0" onAction="#addToDictionary" prefHeight="50.0" prefWidth="176.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Add to dictionary" textAlignment="CENTER">
                                     <font>
                                         <Font name="Montserrat SemiBold" size="15.0" />
@@ -399,6 +463,9 @@
                                     <effect>
                                         <DropShadow color="#a1a0a0" />
                                     </effect>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </JFXButton>
                             </children>
                             <effect>
@@ -415,17 +482,26 @@
                                     <image>
                                         <Image url="@../Image/speaker.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                                 <WebView fx:id="webViewShow" focusTraversable="false" layoutX="22.0" layoutY="43.0" prefHeight="570.0" prefWidth="307.0" />
                                 <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="8.0" onMouseClicked="#deleteShow" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../Image/delete.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                         <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="280.0" layoutY="9.0" onMouseClicked="#openEditShowPane" pickOnBounds="true" preserveRatio="true">
                            <image>
                               <Image url="@../Image/edit.png" />
                            </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                         </ImageView>
                             </children>
                             <effect>
@@ -445,6 +521,9 @@
                             <effect>
                                 <DropShadow color="#c9c9c9" />
                             </effect>
+                     <cursor>
+                        <Cursor fx:constant="TEXT" />
+                     </cursor>
                         </TextField>
                         <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
                             <effect>
@@ -455,17 +534,26 @@
                                     <image>
                                         <Image url="@../Image/speaker.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                                 <WebView fx:id="webViewSearch" focusTraversable="false" layoutX="34.0" layoutY="56.0" prefHeight="398.0" prefWidth="728.0" />
                                 <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="8.0" layoutY="8.0" onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../Image/delete.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                                 <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="714.0" layoutY="8.0" onMouseClicked="#openEditPane" pickOnBounds="true" preserveRatio="true">
                                     <image>
                                         <Image url="@../Image/edit.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                             </children>
                         </Pane>
@@ -475,6 +563,9 @@
                                     <image>
                                         <Image url="@../Image/clear.png" />
                                     </image>
+                           <cursor>
+                              <Cursor fx:constant="OPEN_HAND" />
+                           </cursor>
                                 </ImageView>
                             </children>
                             <effect>

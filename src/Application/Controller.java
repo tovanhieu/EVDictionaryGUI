@@ -282,6 +282,8 @@ public class Controller implements Initializable {
         deleteWord(InputSearch.getText());
         InputSearch.clear();
         webViewSearch.getEngine().loadContent("");
+        anchorPane.setEffect(null);
+        DelPane.toBack();
     }
 
     //Deny deletting word in Search Pane
@@ -328,6 +330,8 @@ public class Controller implements Initializable {
         deleteWord(listView.getSelectionModel().getSelectedItem().toString());
         webViewShow.getEngine().loadContent("");
         listView.getItems().remove(listView.getSelectionModel().getSelectedIndex());
+        anchorPane.setEffect(null);
+        DelPaneShow.toBack();
     }
 
     //Deny deletting word in Show Panedelete
@@ -400,6 +404,8 @@ public class Controller implements Initializable {
         if (!InputSearch.getText().isEmpty()) {
             editEN.setText(InputSearch.getText());
             EditPane.toFront();
+            editVI.setText("");
+            chooseEditType.setValue(null);
             anchorPane.setEffect(blur);
         } else noEdit();
     }
@@ -410,6 +416,8 @@ public class Controller implements Initializable {
         if (listView.getSelectionModel().getSelectedIndex() != -1) {
             editEN.setText(listView.getSelectionModel().getSelectedItem().toString());
             EditPane.toFront();
+            editVI.setText("");
+            chooseEditType.setValue(null);
             anchorPane.setEffect(blur);
         } else noEdit();
     }
@@ -438,12 +446,13 @@ public class Controller implements Initializable {
         editDialog.show();
         */
 
-        //Method 2 - For normal
+        //Method 2 - For normal people
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setContentText("There are nothing to edit...");
         alert.setTitle("LOOK !");
         alert.setHeaderText(null);
         alert.showAndWait();
+        alert.getOnShown();
     }
 
     //Edit a word in dictionary
