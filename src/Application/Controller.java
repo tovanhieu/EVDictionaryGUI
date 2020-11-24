@@ -278,8 +278,7 @@ public class Controller implements Initializable {
 
     //Accept to delete word in Search Pane
     @FXML
-    private void YesDelete(ActionEvent event)
-    {
+    private void YesDelete(ActionEvent event) {
         deleteWord(InputSearch.getText());
         InputSearch.clear();
         webViewSearch.getEngine().loadContent("");
@@ -287,8 +286,7 @@ public class Controller implements Initializable {
 
     //Deny deletting word in Search Pane
     @FXML
-    private void NoDelete(ActionEvent event)
-    {
+    private void NoDelete(ActionEvent event) {
         DelPane.toBack();
         anchorPane.setEffect(null);
     }
@@ -326,17 +324,15 @@ public class Controller implements Initializable {
 
     //Accept to delete word in Show Pane
     @FXML
-    private void YesDeleteShow(ActionEvent event)
-    {
+    private void YesDeleteShow(ActionEvent event) {
         deleteWord(listView.getSelectionModel().getSelectedItem().toString());
         webViewShow.getEngine().loadContent("");
         listView.getItems().remove(listView.getSelectionModel().getSelectedIndex());
     }
 
-    //Deny deletting word in Show Pane
+    //Deny deletting word in Show Panedelete
     @FXML
-    private void NoDeleteShow(ActionEvent event)
-    {
+    private void NoDeleteShow(ActionEvent event) {
         DelPaneShow.toBack();
         anchorPane.setEffect(null);
     }
@@ -390,7 +386,7 @@ public class Controller implements Initializable {
         delShow.show();
         */
 
-        //Method 2
+        //Method 2 - For normal people
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setContentText("You are trying to delete nothing...");
         alert.setTitle("LOOK !");
@@ -466,16 +462,14 @@ public class Controller implements Initializable {
 
     //Deny closing program
     @FXML
-    private void NoExit(ActionEvent event)
-    {
+    private void NoExit(ActionEvent event) {
         exitPane.toBack();
         anchorPane.setEffect(null);
     }
 
     //Accept closing program
     @FXML
-    private void YesExit(ActionEvent event)
-    {
+    private void YesExit(ActionEvent event) {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         stage.close();
     }
