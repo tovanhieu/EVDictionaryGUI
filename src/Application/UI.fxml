@@ -65,7 +65,83 @@
             <Insets left="200.0" />
          </StackPane.margin>
       </Pane>
-        <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0">
+      <Pane fx:id="exitPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="134.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+         <effect>
+            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
+         </effect>
+         <children>
+            <Label layoutX="26.0" layoutY="50.0" text="Are you sure to exit program ?" textFill="#4a4949">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="noExit" buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit" stylesheets="@../Utils/JFX.css" text="No, my bad" />
+            <JFXButton fx:id="yesExit" buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit" stylesheets="@../Utils/JFX.css" text="Yes, sure" />
+            <Label layoutX="26.0" layoutY="21.0" text="BE CAREFUL !">
+               <font>
+                  <Font name="Montserrat Black" size="17.0" />
+               </font>
+            </Label>
+         </children>
+         <StackPane.margin>
+            <Insets left="200.0" />
+         </StackPane.margin>
+      </Pane>
+      <Pane fx:id="DelPane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="148.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+         <effect>
+            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
+         </effect>
+         <children>
+            <Label layoutX="22.0" layoutY="50.0" prefHeight="20.0" prefWidth="391.0" text="You are going to delete a word from dictionary..." textFill="#4a4949">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDelete" stylesheets="@../Utils/JFX.css" text="No, my bad" />
+            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDelete" stylesheets="@../Utils/JFX.css" text="Yes, sure" />
+            <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
+               <font>
+                  <Font name="Montserrat Black" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="69.0" prefHeight="20.0" prefWidth="391.0" text="Are you sure?" textFill="#4a4949">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <StackPane.margin>
+            <Insets left="200.0" />
+         </StackPane.margin>
+      </Pane>
+      <Pane fx:id="DelPaneShow" layoutX="510.0" layoutY="336.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="148.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+         <effect>
+            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
+         </effect>
+         <children>
+            <Label layoutX="22.0" layoutY="50.0" prefHeight="20.0" prefWidth="391.0" text="You are going to delete a word from dictionary..." textFill="#4a4949">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDeleteShow" stylesheets="@../Utils/JFX.css" text="No, my bad" />
+            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDeleteShow" stylesheets="@../Utils/JFX.css" text="Yes, sure" />
+            <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
+               <font>
+                  <Font name="Montserrat Black" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="23.0" layoutY="69.0" prefHeight="20.0" prefWidth="391.0" text="Are you sure?" textFill="#4a4949">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <StackPane.margin>
+            <Insets left="200.0" />
+         </StackPane.margin>
+      </Pane>
+        <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f4f4f4;">
             <children>
                 <VBox prefHeight="800.0" prefWidth="265.0" style="-fx-background-color: #E5E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
@@ -331,6 +407,38 @@
                         </Pane>
                     </children>
                 </Pane>
+                <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <Pane layoutX="466.0" layoutY="68.0" prefHeight="632.0" prefWidth="350.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+                            <children>
+                                <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="308.0" layoutY="5.0" onMouseClicked="#getShowSound" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Image/speaker.png" />
+                                    </image>
+                                </ImageView>
+                                <WebView fx:id="webViewShow" focusTraversable="false" layoutX="22.0" layoutY="43.0" prefHeight="570.0" prefWidth="307.0" />
+                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="8.0" onMouseClicked="#deleteShow" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Image/delete.png" />
+                                    </image>
+                                </ImageView>
+                        <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="280.0" layoutY="9.0" onMouseClicked="#openEditShowPane" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../Image/edit.png" />
+                           </image>
+                        </ImageView>
+                            </children>
+                            <effect>
+                                <DropShadow color="#abaaaa" />
+                            </effect>
+                        </Pane>
+                        <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0" onKeyPressed="#getSelectedMeaningOnKey" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
+                            <effect>
+                                <DropShadow color="#b9b4b4" height="20.21" radius="9.8025" />
+                            </effect>
+                        </JFXListView>
+                    </children>
+                </Pane>
                 <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
                         <TextField fx:id="InputSearch" focusTraversable="false" layoutX="221.0" layoutY="100.0" onAction="#getInputMeaning" prefHeight="50.0" prefWidth="481.0" promptText="Type the word you are looking for..." style="-fx-background-radius: 15;">
@@ -373,38 +481,6 @@
                                 <DropShadow color="#bcbaba" />
                             </effect>
                         </Pane>
-                    </children>
-                </Pane>
-                <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                    <children>
-                        <Pane layoutX="466.0" layoutY="68.0" prefHeight="632.0" prefWidth="350.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
-                            <children>
-                                <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="308.0" layoutY="5.0" onMouseClicked="#getShowSound" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../Image/speaker.png" />
-                                    </image>
-                                </ImageView>
-                                <WebView fx:id="webViewShow" focusTraversable="false" layoutX="22.0" layoutY="43.0" prefHeight="570.0" prefWidth="307.0" />
-                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="8.0" onMouseClicked="#deleteShow" pickOnBounds="true" preserveRatio="true">
-                                    <image>
-                                        <Image url="@../Image/delete.png" />
-                                    </image>
-                                </ImageView>
-                        <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="280.0" layoutY="9.0" onMouseClicked="#openEditShowPane" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Image/edit.png" />
-                           </image>
-                        </ImageView>
-                            </children>
-                            <effect>
-                                <DropShadow color="#abaaaa" />
-                            </effect>
-                        </Pane>
-                        <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0" onKeyPressed="#getSelectedMeaningOnKey" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
-                            <effect>
-                                <DropShadow color="#b9b4b4" height="20.21" radius="9.8025" />
-                            </effect>
-                        </JFXListView>
                     </children>
                 </Pane>
             </children>

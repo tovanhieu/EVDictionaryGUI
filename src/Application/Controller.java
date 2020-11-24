@@ -33,6 +33,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static Handling.Dictionary.*;
@@ -40,14 +41,13 @@ import static Handling.Management.*;
 import static GoogleAPI.Translator.*;
 import static GoogleAPI.Voice.*;
 
-@SuppressWarnings("ALL")
 public class Controller implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     @FXML
     private StackPane stackPane;
     @FXML
-    private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane, EditPane;
+    private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane, EditPane, exitPane, DelPane, DelPaneShow;
     @FXML
     private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton;
     @FXML
@@ -65,6 +65,7 @@ public class Controller implements Initializable {
     @FXML
     private JFXComboBox chooseType, chooseEditType;
 
+    BoxBlur blur = new BoxBlur(10, 10, 10);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -121,8 +122,8 @@ public class Controller implements Initializable {
         WebEngine webEngineShow = webViewShow.getEngine();
         //Show Vietnamese meaning in WebView area
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
-        if (selectedMeaning != null) webEngineShow.loadContent(selectedMeaning);
-        else webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
+        webEngineShow.loadContent(selectedMeaning);
+
     }
 
     //Show Vietnamese meaning when switch English word by pressing arrow key on keyboard
@@ -132,8 +133,7 @@ public class Controller implements Initializable {
         WebEngine webEngineShow = webViewShow.getEngine();
         //Show Vietnamese meaning in WebView area
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
-        if (selectedMeaning != null) webEngineShow.loadContent(selectedMeaning);
-        else webEngineShow.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
+        webEngineShow.loadContent(Objects.requireNonNullElse(selectedMeaning, "<html><h2>Oh no, I can't find this word...</h2></html>"));
     }
 
     //Show Vietnamese meaning after inputting an English word in TextField
@@ -142,8 +142,7 @@ public class Controller implements Initializable {
         //Comments are same with above method
         WebEngine webEngineSearch = webViewSearch.getEngine();
         String inputMeaning = searchWord(InputSearch.getText());
-        if (inputMeaning != null) webEngineSearch.loadContent(inputMeaning);
-        else webEngineSearch.loadContent("<html><h2>Oh no, I can't find this word...</h2></html>");
+        webEngineSearch.loadContent(Objects.requireNonNullElse(inputMeaning, "<html><h2>Oh no, I can't find this word...</h2></html>"));
     }
 
     //Show information about this project read from HTML file
@@ -205,7 +204,7 @@ public class Controller implements Initializable {
     }
 
     private void noSound() {
-        //Method 1
+        //Method 1 - For people who desire a modern, beautiful fat design
         /*
         JFXDialogLayout contentSearchSound = new JFXDialogLayout();
         contentSearchSound.setHeading(new Text("OH NO!"));
@@ -277,11 +276,29 @@ public class Controller implements Initializable {
         googleTextArea.clear();
     }
 
+    //Accept to delete word in Search Pane
+    @FXML
+    private void YesDelete(ActionEvent event)
+    {
+        deleteWord(InputSearch.getText());
+        InputSearch.clear();
+        webViewSearch.getEngine().loadContent("");
+    }
+
+    //Deny deletting word in Search Pane
+    @FXML
+    private void NoDelete(ActionEvent event)
+    {
+        DelPane.toBack();
+        anchorPane.setEffect(null);
+    }
+
     //Delete word from Search Pane
     @FXML
     private void deleteSearch(MouseEvent event) {
         //You can only delete if you have inputted  a word in TextField
         if (!InputSearch.getText().isEmpty()) {
+            /*
             JFXDialogLayout contentSearch = new JFXDialogLayout();
             contentSearch.setHeading(new Text("WARNING !!!"));
             contentSearch.setBody(new Text("You are going to delete a word from dictionary...\nAre you sure?"));
@@ -299,14 +316,38 @@ public class Controller implements Initializable {
             contentSearch.setActions(cancel);
             contentSearch.setActions(accept);
             delSearch.show();
+            */
+
+            DelPane.toFront();
+            anchorPane.setEffect(blur);
+
         } else noDelete();
     }
+
+    //Accept to delete word in Show Pane
+    @FXML
+    private void YesDeleteShow(ActionEvent event)
+    {
+        deleteWord(listView.getSelectionModel().getSelectedItem().toString());
+        webViewShow.getEngine().loadContent("");
+        listView.getItems().remove(listView.getSelectionModel().getSelectedIndex());
+    }
+
+    //Deny deletting word in Show Pane
+    @FXML
+    private void NoDeleteShow(ActionEvent event)
+    {
+        DelPaneShow.toBack();
+        anchorPane.setEffect(null);
+    }
+
 
     //Delete word from Show Pane
     @FXML
     private void deleteShow(MouseEvent event) {
         //You can only delete if you are choosing 1 word from ListView
         if (listView.getSelectionModel().getSelectedIndex() != -1) {
+            /*
             JFXDialogLayout contentShow = new JFXDialogLayout();
             contentShow.setHeading(new Text("WARNING!!!"));
             contentShow.setBody(new Text("You are going to delete a word from dictionary...\nAre you sure !?"));
@@ -324,11 +365,17 @@ public class Controller implements Initializable {
             contentShow.setActions(cancel);
             contentShow.setActions(accept);
             delShow.show();
+            */
+
+            DelPaneShow.toFront();
+            anchorPane.setEffect(blur);
+
         } else noDelete();
     }
 
+    //You have to choose a word to delete
     private void noDelete() {
-        //Method 1
+        //Method 1 - For people who desire a modern, beautiful fat design
         /*
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text("LOOK!"));
@@ -357,7 +404,6 @@ public class Controller implements Initializable {
         if (!InputSearch.getText().isEmpty()) {
             editEN.setText(InputSearch.getText());
             EditPane.toFront();
-            BoxBlur blur = new BoxBlur(10, 10, 10);
             anchorPane.setEffect(blur);
         } else noEdit();
     }
@@ -368,19 +414,20 @@ public class Controller implements Initializable {
         if (listView.getSelectionModel().getSelectedIndex() != -1) {
             editEN.setText(listView.getSelectionModel().getSelectedItem().toString());
             EditPane.toFront();
-            BoxBlur blur = new BoxBlur(10, 10, 10);
             anchorPane.setEffect(blur);
         } else noEdit();
     }
 
+    //Deny editing a word
     @FXML
     private void Cancel(ActionEvent event) {
         EditPane.toBack();
         anchorPane.setEffect(null);
     }
 
+    //You have to choose a word to edit
     private void noEdit() {
-        //Method 1
+        //Method 1 - For people who desire a modern, beautiful fat design
         /*
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text("LOOK!"));
@@ -395,7 +442,7 @@ public class Controller implements Initializable {
         editDialog.show();
         */
 
-        //Method 2
+        //Method 2 - For normal
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setContentText("There are nothing to edit...");
         alert.setTitle("LOOK !");
@@ -417,9 +464,26 @@ public class Controller implements Initializable {
         } else inputAlert();
     }
 
+    //Deny closing program
+    @FXML
+    private void NoExit(ActionEvent event)
+    {
+        exitPane.toBack();
+        anchorPane.setEffect(null);
+    }
+
+    //Accept closing program
+    @FXML
+    private void YesExit(ActionEvent event)
+    {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.close();
+    }
+
     //Close the program when click Exit icon
     @FXML
     private void CloseButton(MouseEvent event) {
+        /*
         //Make sure if you want close program
         Stage stage = (Stage) anchorPane.getScene().getWindow();
         JFXDialogLayout contentClose = new JFXDialogLayout();
@@ -433,6 +497,10 @@ public class Controller implements Initializable {
         ohIsee.setOnAction(e -> stage.close());
         contentClose.setActions(ohIsee);
         exitDialog.show();
+        */
+
+        exitPane.toFront();
+        anchorPane.setEffect(blur);
     }
 
 }
