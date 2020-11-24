@@ -11,7 +11,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
+import javafx.geometry.Pos; //Used in commented code
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ComboBox;
@@ -22,7 +22,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
-import javafx.scene.text.Text;
+import javafx.scene.text.Text; //Used in commented code
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
@@ -45,7 +45,7 @@ public class Controller implements Initializable {
     @FXML
     private AnchorPane anchorPane;
     @FXML
-    private StackPane stackPane;
+    private StackPane stackPane; //Root pane
     @FXML
     private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane, EditPane, exitPane, DelPane, DelPaneShow;
     @FXML
@@ -65,12 +65,16 @@ public class Controller implements Initializable {
     @FXML
     private JFXComboBox chooseType, chooseEditType;
 
+    //Blur effect to set for AnchorPane when a dialog is opened
     BoxBlur blur = new BoxBlur(10, 10, 10);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        //Connect to database
         connectSQLite();
+        //Show all words in Show pane
         ShowAll();
+        //Set items for 2 combobox in Edit pane and Add pane
         ComboBoxItems(chooseType);
         ComboBoxItems(chooseEditType);
         try {
@@ -150,6 +154,7 @@ public class Controller implements Initializable {
     private void aboutInformation() throws IOException {
         //Get engine from WebView
         WebEngine webEngineAbout = webViewAbout.getEngine();
+        //Show HTML information
         webEngineAbout.loadContent(aboutInfo());
     }
 
@@ -204,7 +209,7 @@ public class Controller implements Initializable {
     }
 
     private void noSound() {
-        //Method 1 - For people who desire a modern, beautiful fat design
+        //Method 1 - For people who desire a modern, beautiful flat design
         /*
         JFXDialogLayout contentSearchSound = new JFXDialogLayout();
         contentSearchSound.setHeading(new Text("OH NO!"));
@@ -219,7 +224,7 @@ public class Controller implements Initializable {
         searchSound.show();
         */
 
-        //Method 2
+        //Method 2 - For normal people
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setContentText("There are nothing for me to pronounce !?");
         alert.setTitle("LOOK !");
@@ -243,6 +248,7 @@ public class Controller implements Initializable {
     //Add new word to dictionary
     @FXML
     private void addToDictionary(ActionEvent event) {
+        //I can only add this word to dictionary if some fields in the pane is filled
         if (!editEN.getText().isEmpty() && chooseEditType.getSelectionModel().getSelectedIndex() != -1 && !editVI.getText().isEmpty()) {
             //Get right format of Vietnamese meaning
             String wordSequence = "<html><h1>" + inputEN.getText()
@@ -254,9 +260,10 @@ public class Controller implements Initializable {
         } else inputAlert();
     }
 
+    //Alert when the fill in Edit pane and Add pane is not filled
     private void inputAlert() {
         Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setContentText("You have to input Vietnamese meaning and choose type of English word first...");
+        alert.setContentText("You have to input English word,Vietnamese meaning and choose type of English word first...");
         alert.setTitle("LOOK !");
         alert.setHeaderText(null);
         alert.showAndWait();
@@ -280,8 +287,10 @@ public class Controller implements Initializable {
     @FXML
     private void YesDelete(ActionEvent event) {
         deleteWord(InputSearch.getText());
+        //Clear something else
         InputSearch.clear();
         webViewSearch.getEngine().loadContent("");
+        //Restore AnchorPane
         anchorPane.setEffect(null);
         DelPane.toBack();
     }
@@ -375,7 +384,7 @@ public class Controller implements Initializable {
 
     //You have to choose a word to delete
     private void noDelete() {
-        //Method 1 - For people who desire a modern, beautiful fat design
+        //Method 1 - For people who desire a modern, beautiful flat design
         /*
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text("LOOK!"));
@@ -431,7 +440,7 @@ public class Controller implements Initializable {
 
     //You have to choose a word to edit
     private void noEdit() {
-        //Method 1 - For people who desire a modern, beautiful fat design
+        //Method 1 - For people who desire a modern, beautiful flat design
         /*
         JFXDialogLayout content = new JFXDialogLayout();
         content.setHeading(new Text("LOOK!"));
