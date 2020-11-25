@@ -72,9 +72,7 @@ public class Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         //Connect to database
         connectSQLite();
-        //Show all words in Show pane
         ShowAll();
-        //Set items for 2 combobox in Edit pane and Add pane
         ComboBoxItems(chooseType);
         ComboBoxItems(chooseEditType);
         try {
@@ -99,32 +97,24 @@ public class Controller implements Initializable {
             AboutPane.toFront();
         } else if (event.getSource() == ExportButton) {
             FileChooser fileChooser = new FileChooser();
-            //Title of dialog
             fileChooser.setTitle("Save");
-            //File's format
             fileChooser.getExtensionFilters().addAll(new FileChooser.ExtensionFilter("Text Files", "*.txt"));
             Stage stage = (Stage) anchorPane.getScene().getWindow();
-            //Open dialog to choose where to save file
             File file = fileChooser.showSaveDialog(stage);
-            //Write data to file
             if (file != null) exportDictionary(file);
         }
     }
 
     //Show all words
     private void ShowAll() {
-        //ObservableList of English words
         ObservableList<String> rawList = FXCollections.observableArrayList(getRaw());
-        //Add above list to ListView
         listView.setItems(rawList);
     }
 
     //Show Vietnamese meaning when click at English word
     @FXML
     private void getSelectedMeaning(MouseEvent event) {
-        //Get engine from WebView
         WebEngine webEngineShow = webViewShow.getEngine();
-        //Show Vietnamese meaning in WebView area
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
         webEngineShow.loadContent(selectedMeaning);
 
@@ -133,9 +123,7 @@ public class Controller implements Initializable {
     //Show Vietnamese meaning when switch English word by pressing arrow key on keyboard
     @FXML
     private void getSelectedMeaningOnKey(KeyEvent event) {
-        //Get engine from WebView
         WebEngine webEngineShow = webViewShow.getEngine();
-        //Show Vietnamese meaning in WebView area
         String selectedMeaning = searchWord(listView.getSelectionModel().getSelectedItem().toString());
         webEngineShow.loadContent(Objects.requireNonNullElse(selectedMeaning, "<html><h2>Oh no, I can't find this word...</h2></html>"));
     }
@@ -143,7 +131,6 @@ public class Controller implements Initializable {
     //Show Vietnamese meaning after inputting an English word in TextField
     @FXML
     private void getInputMeaning(ActionEvent event) {
-        //Comments are same with above method
         WebEngine webEngineSearch = webViewSearch.getEngine();
         String inputMeaning = searchWord(InputSearch.getText());
         webEngineSearch.loadContent(Objects.requireNonNullElse(inputMeaning, "<html><h2>Oh no, I can't find this word...</h2></html>"));
@@ -152,9 +139,7 @@ public class Controller implements Initializable {
     //Show information about this project read from HTML file
     @FXML
     private void aboutInformation() throws IOException {
-        //Get engine from WebView
         WebEngine webEngineAbout = webViewAbout.getEngine();
-        //Show HTML information
         webEngineAbout.loadContent(aboutInfo());
     }
 
@@ -250,12 +235,10 @@ public class Controller implements Initializable {
     private void addToDictionary(ActionEvent event) {
         //I can only add this word to dictionary if some fields in the pane is filled
         if (!editEN.getText().isEmpty() && chooseEditType.getSelectionModel().getSelectedIndex() != -1 && !editVI.getText().isEmpty()) {
-            //Get right format of Vietnamese meaning
             String wordSequence = "<html><h1>" + inputEN.getText()
                     + "</h1><h3><i>/" + inputPronoun.getText()
                     + "/</i></h3><h2>" + chooseType.getSelectionModel().getSelectedItem().toString()
                     + "</h2><ul><li>" + inputVI.getText() + "</li></ul></html>";
-            //Add to dictionary
             addWord(inputEN.getText(), wordSequence);
         } else inputAlert();
     }
@@ -287,10 +270,8 @@ public class Controller implements Initializable {
     @FXML
     private void YesDelete(ActionEvent event) {
         deleteWord(InputSearch.getText());
-        //Clear something else
         InputSearch.clear();
         webViewSearch.getEngine().loadContent("");
-        //Restore AnchorPane
         anchorPane.setEffect(null);
         DelPane.toBack();
     }
