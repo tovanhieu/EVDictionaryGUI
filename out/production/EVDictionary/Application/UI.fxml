@@ -24,6 +24,41 @@
 
 <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
     <children>
+      <Pane fx:id="switchGooglePane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="145.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+         <effect>
+            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
+         </effect>
+         <children>
+            <Label layoutX="26.0" layoutY="44.0" text="I can find this word..." textFill="#4a4949">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="99.0" onAction="#noGoogle" stylesheets="@../Utils/JFX.css" text="No, thanks">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="99.0" onAction="#switchGoogle" stylesheets="@../Utils/JFX.css" text="Yes, sure">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <Label layoutX="26.0" layoutY="15.0" text="OH NO !">
+               <font>
+                  <Font name="Montserrat Black" size="17.0" />
+               </font>
+            </Label>
+            <Label layoutX="26.0" layoutY="65.0" text="Do you want to use Google Translate instead?" textFill="#4a4949">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+         </children>
+         <StackPane.margin>
+            <Insets left="200.0" />
+         </StackPane.margin>
+      </Pane>
       <Pane fx:id="alertPane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="134.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
          <effect>
             <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
@@ -45,6 +80,9 @@
                </font>
             </Label>
          </children>
+         <StackPane.margin>
+            <Insets left="200.0" />
+         </StackPane.margin>
       </Pane>
       <Pane fx:id="EditPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="602.0" prefWidth="517.0" style="-fx-background-color: ffffff; -fx-background-radius: 25;">
          <children>
@@ -107,11 +145,11 @@
                   <Font size="16.0" />
                </font>
             </Label>
-            <JFXButton fx:id="noExit" buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit" stylesheets="@../Utils/JFX.css" text="No, my bad">
+            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit" stylesheets="@../Utils/JFX.css" text="No, my bad">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor></JFXButton>
-            <JFXButton fx:id="yesExit" buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit" stylesheets="@../Utils/JFX.css" text="Yes, sure">
+            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit" stylesheets="@../Utils/JFX.css" text="Yes, sure">
                <cursor>
                   <Cursor fx:constant="OPEN_HAND" />
                </cursor></JFXButton>

@@ -47,7 +47,7 @@ public class Controller implements Initializable {
     @FXML
     private StackPane stackPane; //Root pane
     @FXML
-    private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane, EditPane, exitPane, DelPane, DelPaneShow, alertPane;
+    private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane, EditPane, exitPane, DelPane, DelPaneShow, alertPane, switchGooglePane;
     @FXML
     private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton;
     @FXML
@@ -133,7 +133,11 @@ public class Controller implements Initializable {
     private void getInputMeaning(ActionEvent event) {
         WebEngine webEngineSearch = webViewSearch.getEngine();
         String inputMeaning = searchWord(InputSearch.getText());
-        webEngineSearch.loadContent(Objects.requireNonNullElse(inputMeaning, "<html><h2>Oh no, I can't find this word...</h2></html>"));
+        if (inputMeaning != null) webEngineSearch.loadContent(inputMeaning);
+        else {
+            switchGooglePane.toFront();
+            anchorPane.setEffect(blur);
+        }
     }
 
     //Show information about this project read from HTML file
@@ -406,6 +410,7 @@ public class Controller implements Initializable {
     private void openEditPane(MouseEvent event) {
         if (!InputSearch.getText().isEmpty()) {
             editEN.setText(InputSearch.getText());
+            editEN.setEditable(false);
             EditPane.toFront();
             editVI.setText("");
             chooseEditType.setValue(null);
@@ -418,6 +423,7 @@ public class Controller implements Initializable {
     private void openEditShowPane(MouseEvent event) {
         if (listView.getSelectionModel().getSelectedIndex() != -1) {
             editEN.setText(listView.getSelectionModel().getSelectedItem().toString());
+            editEN.setEditable(false);
             EditPane.toFront();
             editVI.setText("");
             chooseEditType.setValue(null);
@@ -464,9 +470,9 @@ public class Controller implements Initializable {
         anchorPane.setEffect(blur);
     }
 
+    //Accept your fault when select nothing
     @FXML
-    private void OhMyBad (ActionEvent event)
-    {
+    private void OhMyBad(ActionEvent event) {
         alertPane.toBack();
         anchorPane.setEffect(null);
     }
@@ -489,6 +495,24 @@ public class Controller implements Initializable {
     @FXML
     private void NoExit(ActionEvent event) {
         exitPane.toBack();
+        anchorPane.setEffect(null);
+    }
+
+    //Accept advice to switch to Google Pane
+    @FXML
+    private void switchGoogle(ActionEvent event) throws Exception {
+        switchGooglePane.toBack();
+        GooglePane.toFront();
+        anchorPane.setEffect(null);
+        GoogleSearch.setText(InputSearch.getText());
+        anchorPane.setEffect(null);
+        googleTextArea.setText(callUrlAndParseResult("en","vi",InputSearch.getText()));
+    }
+
+    //Cancel advice to switch to Google Pane
+    @FXML
+    private void noGoogle(ActionEvent event) {
+        switchGooglePane.toBack();
         anchorPane.setEffect(null);
     }
 

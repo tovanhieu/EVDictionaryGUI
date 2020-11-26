@@ -15,6 +15,7 @@ import org.json.JSONArray;
 
 public class Translator {
 
+    //Call URL request and get response
     public static String callUrlAndParseResult(String langFrom, String langTo, String word) throws Exception {
         String url = "https://translate.googleapis.com/translate_a/single?" + "client=gtx&" + "sl=" + langFrom + "&tl=" + langTo + "&dt=t&q=" + URLEncoder.encode(word, "UTF-8");
         URL obj = new URL(url);
@@ -30,6 +31,7 @@ public class Translator {
         return parseResult(response.toString());
     }
 
+    //Handling JSON response and get Vietnamese meaning
     private static String parseResult(String inputJson) {
         JSONArray jsonArray = new JSONArray(inputJson);
         JSONArray jsonArray2 = (JSONArray) jsonArray.get(0);
