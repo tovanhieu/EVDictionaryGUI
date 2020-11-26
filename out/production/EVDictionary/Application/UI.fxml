@@ -24,6 +24,28 @@
 
 <StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
     <children>
+      <Pane fx:id="alertPane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="134.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+         <effect>
+            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
+         </effect>
+         <children>
+            <Label layoutX="26.0" layoutY="50.0" text="You have to focus on a word first..." textFill="#4a4949">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#OhMyBad" stylesheets="@../Utils/JFX.css" text="Oh, my bad">
+               <cursor>
+                  <Cursor fx:constant="OPEN_HAND" />
+               </cursor>
+            </JFXButton>
+            <Label layoutX="26.0" layoutY="21.0" text="LOOK !">
+               <font>
+                  <Font name="Montserrat Black" size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
       <Pane fx:id="EditPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="602.0" prefWidth="517.0" style="-fx-background-color: ffffff; -fx-background-radius: 25;">
          <children>
             <JFXTextField fx:id="editEN" focusTraversable="false" layoutX="76.0" layoutY="75.0" prefHeight="63.0" prefWidth="365.0" promptText="Input English word">

@@ -47,7 +47,7 @@ public class Controller implements Initializable {
     @FXML
     private StackPane stackPane; //Root pane
     @FXML
-    private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane, EditPane, exitPane, DelPane, DelPaneShow;
+    private Pane SearchPane, ShowPane, GooglePane, AddPane, AboutPane, EditPane, exitPane, DelPane, DelPaneShow, alertPane;
     @FXML
     private JFXButton SearchButton, ShowButton, AddButton, GoogleButton, AboutButton, ExportButton;
     @FXML
@@ -193,6 +193,7 @@ public class Controller implements Initializable {
         } else noSound();
     }
 
+    //You have to choose a word to pronounce
     private void noSound() {
         //Method 1 - For people who desire a modern, beautiful flat design
         /*
@@ -210,11 +211,17 @@ public class Controller implements Initializable {
         */
 
         //Method 2 - For normal people
+        /*
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setContentText("There are nothing for me to pronounce !?");
         alert.setTitle("LOOK !");
         alert.setHeaderText(null);
         alert.showAndWait();
+        */
+
+        //Method 3 - For me
+        alertPane.toFront();
+        anchorPane.setEffect(blur);
     }
 
     //Change font size of Vietnamese meaning
@@ -234,7 +241,7 @@ public class Controller implements Initializable {
     @FXML
     private void addToDictionary(ActionEvent event) {
         //I can only add this word to dictionary if some fields in the pane is filled
-        if (!editEN.getText().isEmpty() && chooseEditType.getSelectionModel().getSelectedIndex() != -1 && !editVI.getText().isEmpty()) {
+        if (!inputEN.getText().isEmpty() && chooseType.getSelectionModel().getSelectedIndex() != -1 && !inputEN.getText().isEmpty()) {
             String wordSequence = "<html><h1>" + inputEN.getText()
                     + "</h1><h3><i>/" + inputPronoun.getText()
                     + "/</i></h3><h2>" + chooseType.getSelectionModel().getSelectedItem().toString()
@@ -381,11 +388,17 @@ public class Controller implements Initializable {
         */
 
         //Method 2 - For normal people
+        /*
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setContentText("You are trying to delete nothing...");
         alert.setTitle("LOOK !");
         alert.setHeaderText(null);
         alert.showAndWait();
+        */
+
+        //Method 3 - For me
+        alertPane.toFront();
+        anchorPane.setEffect(blur);
     }
 
     //Open Edit Pane when clicking Edit icon
@@ -437,12 +450,25 @@ public class Controller implements Initializable {
         */
 
         //Method 2 - For normal people
+        /*
         Alert alert = new Alert(AlertType.INFORMATION);
         alert.setContentText("There are nothing to edit...");
         alert.setTitle("LOOK !");
         alert.setHeaderText(null);
         alert.showAndWait();
         alert.getOnShown();
+        */
+
+        //Method 3 - For me
+        alertPane.toFront();
+        anchorPane.setEffect(blur);
+    }
+
+    @FXML
+    private void OhMyBad (ActionEvent event)
+    {
+        alertPane.toBack();
+        anchorPane.setEffect(null);
     }
 
     //Edit a word in dictionary
