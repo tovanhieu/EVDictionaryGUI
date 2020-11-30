@@ -504,8 +504,8 @@ public class Controller implements Initializable {
         switchGooglePane.toBack();
         GooglePane.toFront();
         anchorPane.setEffect(null);
+        webViewSearch.loadContent("");
         GoogleSearch.setText(InputSearch.getText());
-        anchorPane.setEffect(null);
         googleTextArea.setText(callUrlAndParseResult("en","vi",InputSearch.getText()));
     }
 
