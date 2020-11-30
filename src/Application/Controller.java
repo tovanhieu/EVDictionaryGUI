@@ -506,6 +506,7 @@ public class Controller implements Initializable {
         anchorPane.setEffect(null);
         GoogleSearch.setText(InputSearch.getText());
         googleTextArea.setText(callUrlAndParseResult("en","vi",InputSearch.getText()));
+        googleTextArea.setEditable(false);
     }
 
     //Cancel advice to switch to Google Pane
