@@ -18,6 +18,8 @@
 ## Description
 A small Java project aims at providing a free (open source) English - Vietnamese dictionary 
 
+
+![Demo](demo.png)
 ## Information 🏷
 - __IDE:__ _IntelliJ IDEA Ultimate Edition_
 - __Project SDK:__ _Oracle OpenJDK 15.0.1_
