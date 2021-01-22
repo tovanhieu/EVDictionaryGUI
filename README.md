@@ -22,7 +22,7 @@ A small Java project aims at providing a free (open source) English - Vietnamese
 ![Demo](demo.png)
 ## Information 🏷
 - __IDE:__ _IntelliJ IDEA Ultimate Edition_
-- __Project SDK:__ _Oracle OpenJDK 15.0.1_
+- __Project SDK:__ _Oracle OpenJDK 15.0.1_ 
 - __Operating System:__ _Kali Linux 2020.4_
 
 ## Libraries
