@@ -22,614 +22,721 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.web.WebView?>
 
-<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
+<StackPane fx:id="stackPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+           prefHeight="800.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/11.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.Controller">
     <children>
-      <Pane fx:id="switchGooglePane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="145.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
-         <effect>
-            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
-         </effect>
-         <children>
-            <Label layoutX="26.0" layoutY="44.0" text="I can find this word..." textFill="#4a4949">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="99.0" onAction="#noGoogle" stylesheets="@../Utils/JFX.css" text="No, thanks">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="99.0" onAction="#switchGoogle" stylesheets="@../Utils/JFX.css" text="Yes, sure">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </JFXButton>
-            <Label layoutX="26.0" layoutY="15.0" text="OH NO !">
-               <font>
-                  <Font name="Montserrat Black" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="26.0" layoutY="65.0" text="Do you want to use Google Translate instead?" textFill="#4a4949">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets left="200.0" />
-         </StackPane.margin>
-      </Pane>
-      <Pane fx:id="alertPane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="134.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
-         <effect>
-            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
-         </effect>
-         <children>
-            <Label layoutX="26.0" layoutY="50.0" text="You have to focus on a word first..." textFill="#4a4949">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#OhMyBad" stylesheets="@../Utils/JFX.css" text="Oh, my bad">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </JFXButton>
-            <Label layoutX="26.0" layoutY="21.0" text="LOOK !">
-               <font>
-                  <Font name="Montserrat Black" size="17.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets left="200.0" />
-         </StackPane.margin>
-      </Pane>
-      <Pane fx:id="EditPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="602.0" prefWidth="517.0" style="-fx-background-color: ffffff; -fx-background-radius: 25;">
-         <children>
-            <JFXTextField fx:id="editEN" focusTraversable="false" layoutX="76.0" layoutY="75.0" prefHeight="63.0" prefWidth="365.0" promptText="Input English word">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="editVI" focusTraversable="false" layoutX="76.0" layoutY="185.0" prefHeight="63.0" prefWidth="365.0" promptText="Input Vietnamese meaning">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXTextField fx:id="editPronoun" focusTraversable="false" layoutX="76.0" layoutY="303.0" prefHeight="63.0" prefWidth="365.0" promptText="Input pronouncication (Can be null)">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
-            <JFXComboBox fx:id="chooseEditType" focusTraversable="false" layoutX="76.0" layoutY="397.0" prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></JFXComboBox>
-            <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="128.0" layoutY="511.0" onAction="#editWords" prefHeight="50.0" prefWidth="131.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Apply edition" textAlignment="CENTER">
-               <font>
-                  <Font name="Montserrat SemiBold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow color="#a1a0a0" />
-               </effect>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </JFXButton>
-            <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="301.0" layoutY="511.0" onAction="#Cancel" prefHeight="50.0" prefWidth="131.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Cancel" textAlignment="CENTER">
-               <font>
-                  <Font name="Montserrat SemiBold" size="15.0" />
-               </font>
-               <effect>
-                  <DropShadow color="#a1a0a0" />
-               </effect>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
-            </JFXButton>
-         </children>
-         <effect>
-            <DropShadow color="#b2afaf" height="75.64" radius="35.802499999999995" width="69.57" />
-         </effect>
-         <StackPane.margin>
-            <Insets left="200.0" />
-         </StackPane.margin>
-      </Pane>
-      <Pane fx:id="exitPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="134.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
-         <effect>
-            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
-         </effect>
-         <children>
-            <Label layoutX="26.0" layoutY="50.0" text="Are you sure to exit program ?" textFill="#4a4949">
-               <font>
-                  <Font size="16.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit" stylesheets="@../Utils/JFX.css" text="No, my bad">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit" stylesheets="@../Utils/JFX.css" text="Yes, sure">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></JFXButton>
-            <Label layoutX="26.0" layoutY="21.0" text="BE CAREFUL !">
-               <font>
-                  <Font name="Montserrat Black" size="17.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets left="200.0" />
-         </StackPane.margin>
-      </Pane>
-      <Pane fx:id="DelPane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="148.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
-         <effect>
-            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
-         </effect>
-         <children>
-            <Label layoutX="22.0" layoutY="50.0" prefHeight="20.0" prefWidth="391.0" text="You are going to delete a word from dictionary..." textFill="#4a4949">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDelete" stylesheets="@../Utils/JFX.css" text="No, my bad">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDelete" stylesheets="@../Utils/JFX.css" text="Yes, sure">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></JFXButton>
-            <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
-               <font>
-                  <Font name="Montserrat Black" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="23.0" layoutY="69.0" prefHeight="20.0" prefWidth="391.0" text="Are you sure?" textFill="#4a4949">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets left="200.0" />
-         </StackPane.margin>
-      </Pane>
-      <Pane fx:id="DelPaneShow" layoutX="510.0" layoutY="336.0" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="148.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
-         <effect>
-            <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43" />
-         </effect>
-         <children>
-            <Label layoutX="22.0" layoutY="50.0" prefHeight="20.0" prefWidth="391.0" text="You are going to delete a word from dictionary..." textFill="#4a4949">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDeleteShow" stylesheets="@../Utils/JFX.css" text="No, my bad">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></JFXButton>
-            <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDeleteShow" stylesheets="@../Utils/JFX.css" text="Yes, sure">
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor></JFXButton>
-            <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
-               <font>
-                  <Font name="Montserrat Black" size="17.0" />
-               </font>
-            </Label>
-            <Label layoutX="23.0" layoutY="69.0" prefHeight="20.0" prefWidth="391.0" text="Are you sure?" textFill="#4a4949">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-         </children>
-         <StackPane.margin>
-            <Insets left="200.0" />
-         </StackPane.margin>
-      </Pane>
-        <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f4f4f4;">
+        <Pane fx:id="switchGooglePane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              prefHeight="145.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+            <effect>
+                <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43"/>
+            </effect>
             <children>
-                <VBox prefHeight="800.0" prefWidth="265.0" style="-fx-background-color: #E5E5E5;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <Label layoutX="26.0" layoutY="44.0" text="Không tìm thấy từ" textFill="#4a4949">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="99.0" onAction="#noGoogle"
+                           stylesheets="@../Utils/JFX.css" text="No, thanks">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="99.0" onAction="#switchGoogle"
+                           stylesheets="@../Utils/JFX.css" text="Yes, sure">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <Label layoutX="26.0" layoutY="15.0" text="OH NO !">
+                    <font>
+                        <Font name="Montserrat Black" size="17.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="26.0" layoutY="65.0" text="Do you want to use Google Translate instead?"
+                       textFill="#4a4949">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+            </children>
+            <StackPane.margin>
+                <Insets left="200.0"/>
+            </StackPane.margin>
+        </Pane>
+        <Pane fx:id="alertPane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              prefHeight="134.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+            <effect>
+                <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43"/>
+            </effect>
+            <children>
+                <Label layoutX="26.0" layoutY="50.0" text="You have to focus on a word first..." textFill="#4a4949">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#OhMyBad"
+                           stylesheets="@../Utils/JFX.css" text="Oh, my bad">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <Label layoutX="26.0" layoutY="21.0" text="LOOK !">
+                    <font>
+                        <Font name="Montserrat Black" size="17.0"/>
+                    </font>
+                </Label>
+            </children>
+            <StackPane.margin>
+                <Insets left="200.0"/>
+            </StackPane.margin>
+        </Pane>
+        <Pane fx:id="EditPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="602.0" prefWidth="517.0"
+              style="-fx-background-color: ffffff; -fx-background-radius: 25;">
+            <children>
+                <JFXTextField fx:id="editEN" focusTraversable="false" layoutX="76.0" layoutY="75.0" prefHeight="63.0"
+                              prefWidth="365.0" promptText="Input English word">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="editVI" focusTraversable="false" layoutX="76.0" layoutY="185.0" prefHeight="63.0"
+                              prefWidth="365.0" promptText="Input Vietnamese meaning">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXTextField fx:id="editPronoun" focusTraversable="false" layoutX="76.0" layoutY="303.0"
+                              prefHeight="63.0" prefWidth="365.0" promptText="Input pronouncication (Can be null)">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </JFXTextField>
+                <JFXComboBox fx:id="chooseEditType" focusTraversable="false" layoutX="76.0" layoutY="397.0"
+                             prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXComboBox>
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="128.0" layoutY="511.0"
+                           onAction="#editWords" prefHeight="50.0" prefWidth="131.0" ripplerFill="#da7e7e"
+                           stylesheets="@../Utils/JFX.css" text="Apply edition" textAlignment="CENTER">
+                    <font>
+                        <Font name="Montserrat SemiBold" size="15.0"/>
+                    </font>
+                    <effect>
+                        <DropShadow color="#a1a0a0"/>
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="301.0" layoutY="511.0"
+                           onAction="#Cancel" prefHeight="50.0" prefWidth="131.0" ripplerFill="#da7e7e"
+                           stylesheets="@../Utils/JFX.css" text="Cancel" textAlignment="CENTER">
+                    <font>
+                        <Font name="Montserrat SemiBold" size="15.0"/>
+                    </font>
+                    <effect>
+                        <DropShadow color="#a1a0a0"/>
+                    </effect>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+            </children>
+            <effect>
+                <DropShadow color="#b2afaf" height="75.64" radius="35.802499999999995" width="69.57"/>
+            </effect>
+            <StackPane.margin>
+                <Insets left="200.0"/>
+            </StackPane.margin>
+        </Pane>
+        <Pane fx:id="exitPane" maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="134.0" prefWidth="400.0"
+              style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+            <effect>
+                <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43"/>
+            </effect>
+            <children>
+                <Label layoutX="26.0" layoutY="50.0" text="Are you sure to exit program ?" textFill="#4a4949">
+                    <font>
+                        <Font size="16.0"/>
+                    </font>
+                </Label>
+                <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit"
+                           stylesheets="@../Utils/JFX.css" text="No, my bad">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit"
+                           stylesheets="@../Utils/JFX.css" text="Yes, sure">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <Label layoutX="26.0" layoutY="21.0" text="BE CAREFUL !">
+                    <font>
+                        <Font name="Montserrat Black" size="17.0"/>
+                    </font>
+                </Label>
+            </children>
+            <StackPane.margin>
+                <Insets left="200.0"/>
+            </StackPane.margin>
+        </Pane>
+        <Pane fx:id="DelPane" layoutX="510.0" layoutY="343.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              prefHeight="148.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+            <effect>
+                <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43"/>
+            </effect>
+            <children>
+                <Label layoutX="22.0" layoutY="50.0" prefHeight="20.0" prefWidth="391.0"
+                       text="You are going to delete a word from dictionary..." textFill="#4a4949">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDelete"
+                           stylesheets="@../Utils/JFX.css" text="No, my bad">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDelete"
+                           stylesheets="@../Utils/JFX.css" text="Yes, sure">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
+                    <font>
+                        <Font name="Montserrat Black" size="17.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="23.0" layoutY="69.0" prefHeight="20.0" prefWidth="391.0" text="Are you sure?"
+                       textFill="#4a4949">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+            </children>
+            <StackPane.margin>
+                <Insets left="200.0"/>
+            </StackPane.margin>
+        </Pane>
+        <Pane fx:id="DelPaneShow" layoutX="510.0" layoutY="336.0" maxHeight="-Infinity" maxWidth="-Infinity"
+              prefHeight="148.0" prefWidth="400.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+            <effect>
+                <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43"/>
+            </effect>
+            <children>
+                <Label layoutX="22.0" layoutY="50.0" prefHeight="20.0" prefWidth="391.0"
+                       text="You are going to delete a word from dictionary..." textFill="#4a4949">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+                <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="106.0" onAction="#NoDeleteShow"
+                           stylesheets="@../Utils/JFX.css" text="No, my bad">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="106.0" onAction="#YesDeleteShow"
+                           stylesheets="@../Utils/JFX.css" text="Yes, sure">
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
+                </JFXButton>
+                <Label layoutX="21.0" layoutY="21.0" text="WARNING !!!">
+                    <font>
+                        <Font name="Montserrat Black" size="17.0"/>
+                    </font>
+                </Label>
+                <Label layoutX="23.0" layoutY="69.0" prefHeight="20.0" prefWidth="391.0" text="Are you sure?"
+                       textFill="#4a4949">
+                    <font>
+                        <Font size="15.0"/>
+                    </font>
+                </Label>
+            </children>
+            <StackPane.margin>
+                <Insets left="200.0"/>
+            </StackPane.margin>
+        </Pane>
+        <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+                    minWidth="-Infinity" prefHeight="800.0" prefWidth="1200.0" style="-fx-background-color: f4f4f4;">
+            <children>
+                <VBox prefHeight="800.0" prefWidth="265.0" style="-fx-background-color: #E5E5E5;"
+                      AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
                         <ImageView fitHeight="139.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/DicLogo.png" />
+                                <Image url="@../Image/DicLogo.png"/>
                             </image>
                             <VBox.margin>
-                                <Insets left="45.0" top="35.0" />
+                                <Insets left="45.0" top="35.0"/>
                             </VBox.margin>
                         </ImageView>
-                        <ImageView fitHeight="84.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true" />
-                        <JFXButton fx:id="SearchButton" alignment="BASELINE_LEFT" focusTraversable="false" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96f" stylesheets="@../Utils/Button.css" text="   Search">
+                        <ImageView fitHeight="84.0" fitWidth="263.0" pickOnBounds="true" preserveRatio="true"/>
+                        <JFXButton fx:id="SearchButton" alignment="BASELINE_LEFT" focusTraversable="false"
+                                   onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0"
+                                   ripplerFill="#70c96f" stylesheets="@../Utils/Button.css" text="   Tìm kiếm">
                             <graphic>
                                 <ImageView fitHeight="23.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/search.png" />
+                                        <Image url="@../Image/search.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font name="Montserrat SemiBold" size="14.0" />
+                                <Font name="Montserrat SemiBold" size="14.0"/>
                             </font>
                             <VBox.margin>
-                                <Insets />
+                                <Insets/>
                             </VBox.margin>
                             <padding>
-                                <Insets left="48.0" />
+                                <Insets left="48.0"/>
                             </padding>
                             <tooltip>
-                                <Tooltip text="Tìm kiếm từ vựng" />
+                                <Tooltip text="Tìm kiếm từ vựng"/>
                             </tooltip>
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="ShowButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="10.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70c96e" stylesheets="@../Utils/Button.css" text="   Show all words">
+                        <JFXButton fx:id="ShowButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0"
+                                   layoutY="10.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0"
+                                   ripplerFill="#70c96e" stylesheets="@../Utils/Button.css" text="   Từ vựng theo chủ đề">
                             <graphic>
                                 <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/list.png" />
+                                        <Image url="@../Image/list.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font name="Montserrat SemiBold" size="14.0" />
+                                <Font name="Montserrat SemiBold" size="14.0"/>
                             </font>
                             <VBox.margin>
-                                <Insets />
+                                <Insets/>
                             </VBox.margin>
                             <padding>
-                                <Insets left="45.0" />
+                                <Insets left="45.0"/>
                             </padding>
                             <tooltip>
-                                <Tooltip text="Hiển thị tất cả từ trong từ điển" />
+                                <Tooltip text="Hiển thị tất cả từ trong từ điển"/>
                             </tooltip>
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="AddButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="73.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6fc96d" stylesheets="@../Utils/Button.css" text="   Add more words">
+                        <JFXButton fx:id="AddButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0"
+                                   layoutY="73.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0"
+                                   ripplerFill="#6fc96d" stylesheets="@../Utils/Button.css" text="   Thêm từ vựng">
                             <graphic>
                                 <ImageView fitHeight="27.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/add.png" />
+                                        <Image url="@../Image/add.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font name="Montserrat SemiBold" size="14.0" />
+                                <Font name="Montserrat SemiBold" size="14.0"/>
                             </font>
                             <VBox.margin>
-                                <Insets />
+                                <Insets/>
                             </VBox.margin>
                             <padding>
-                                <Insets left="44.0" />
+                                <Insets left="44.0"/>
                             </padding>
                             <tooltip>
-                                <Tooltip text="Thêm các từ mà từ điển chưa có" />
+                                <Tooltip text="Thêm các từ mà từ điển chưa có"/>
                             </tooltip>
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="ExportButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css" text="   Export Dictionary">
+                        <JFXButton fx:id="ExportButton" alignment="BASELINE_LEFT" focusTraversable="false"
+                                   layoutX="10.0" layoutY="136.0" onAction="#handleButtonAction" prefHeight="63.0"
+                                   prefWidth="265.0" ripplerFill="#70cd6f" stylesheets="@../Utils/Button.css"
+                                   text="   Xuất danh sách từ vựng">
                             <graphic>
                                 <ImageView fitHeight="29.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/export.png" />
+                                        <Image url="@../Image/export.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font name="Montserrat SemiBold" size="14.0" />
+                                <Font name="Montserrat SemiBold" size="14.0"/>
                             </font>
                             <VBox.margin>
-                                <Insets />
+                                <Insets/>
                             </VBox.margin>
                             <padding>
-                                <Insets left="44.0" />
+                                <Insets left="44.0"/>
                             </padding>
                             <tooltip>
-                                <Tooltip text="Xuất dữ liệu từ điển ra file" />
+                                <Tooltip text="Xuất dữ liệu từ điển ra file"/>
                             </tooltip>
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="GoogleButton" alignment="BASELINE_LEFT" focusTraversable="false" layoutX="10.0" layoutY="199.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="   Google Translate">
+                        <JFXButton fx:id="GoogleButton" alignment="BASELINE_LEFT" focusTraversable="false"
+                                   layoutX="10.0" layoutY="199.0" onAction="#handleButtonAction" prefHeight="63.0"
+                                   prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css"
+                                   text="   Google Translate">
                             <graphic>
                                 <ImageView fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/translate.png" />
+                                        <Image url="@../Image/translate.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font name="Montserrat SemiBold" size="14.0" />
+                                <Font name="Montserrat SemiBold" size="14.0"/>
                             </font>
                             <VBox.margin>
-                                <Insets />
+                                <Insets/>
                             </VBox.margin>
                             <padding>
-                                <Insets left="44.0" />
+                                <Insets left="44.0"/>
                             </padding>
                             <tooltip>
-                                <Tooltip text="Tra từ sử dụng Google Dịch" />
+                                <Tooltip text="Tra từ sử dụng Google Dịch"/>
                             </tooltip>
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
                         </JFXButton>
-                        <JFXButton fx:id="AboutButton" alignment="BASELINE_LEFT" focusTraversable="false" graphicTextGap="13.0" layoutX="10.0" layoutY="526.0" onAction="#handleButtonAction" prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c" stylesheets="@../Utils/Button.css" text="About">
+                        <JFXButton fx:id="AboutButton" alignment="BASELINE_LEFT" focusTraversable="false"
+                                   graphicTextGap="13.0" layoutX="10.0" layoutY="526.0" onAction="#handleButtonAction"
+                                   prefHeight="63.0" prefWidth="265.0" ripplerFill="#6ecd6c"
+                                   stylesheets="@../Utils/Button.css" text="Về tác giả">
                             <graphic>
                                 <ImageView fitHeight="40.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/about.png" />
+                                        <Image url="@../Image/about.png"/>
                                     </image>
                                 </ImageView>
                             </graphic>
                             <font>
-                                <Font name="Montserrat SemiBold" size="14.0" />
+                                <Font name="Montserrat SemiBold" size="14.0"/>
                             </font>
                             <padding>
-                                <Insets left="39.0" />
+                                <Insets left="39.0"/>
                             </padding>
                             <tooltip>
-                                <Tooltip text="Thông tin về tác giả và các thư viện, plugins, dependencies được áp dụng" />
+                                <Tooltip
+                                        text="Thông tin về tác giả và các thư viện, plugins, dependencies được áp dụng"/>
                             </tooltip>
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
                         </JFXButton>
-                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="265.0" text="Version 1.0" textFill="#3271b9">
+                        <Label alignment="CENTER" prefHeight="16.0" prefWidth="265.0" text="Version 1.0"
+                               textFill="#3271b9">
                             <tooltip>
-                                <Tooltip text="Không có ý định update nên đây là phiên bản cuối cùng" />
+                                <Tooltip text="Không có ý định update nên đây là phiên bản cuối cùng"/>
                             </tooltip>
                             <VBox.margin>
-                                <Insets top="139.0" />
+                                <Insets top="139.0"/>
                             </VBox.margin>
                         </Label>
                     </children>
                     <effect>
-                        <DropShadow color="#a4a2a2" height="0.0" radius="9.3025" width="39.21" />
+                        <DropShadow color="#a4a2a2" height="0.0" radius="9.3025" width="39.21"/>
                     </effect>
                 </VBox>
-                <ImageView fitHeight="24.0" fitWidth="66.0" onMouseClicked="#CloseButton" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                <ImageView fitHeight="24.0" fitWidth="66.0" onMouseClicked="#CloseButton" pickOnBounds="true"
+                           preserveRatio="true" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
                     <image>
-                        <Image url="@../Image/exit.png" />
+                        <Image url="@../Image/exit.png"/>
                     </image>
-               <cursor>
-                  <Cursor fx:constant="OPEN_HAND" />
-               </cursor>
+                    <cursor>
+                        <Cursor fx:constant="OPEN_HAND"/>
+                    </cursor>
                 </ImageView>
-                <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <Pane fx:id="AboutPane" layoutX="300.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0"
+                      style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Pane layoutX="70.0" layoutY="61.0" prefHeight="647.0" prefWidth="761.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+                        <Pane layoutX="70.0" layoutY="61.0" prefHeight="647.0" prefWidth="761.0"
+                              style="-fx-background-color: ffffff; -fx-background-radius: 20;">
                             <effect>
-                                <DropShadow color="#b5b5b5" />
+                                <DropShadow color="#b5b5b5"/>
                             </effect>
                             <children>
-                                <WebView fx:id="webViewAbout" layoutX="30.0" layoutY="23.0" prefHeight="602.0" prefWidth="709.0" />
+                                <WebView fx:id="webViewAbout" layoutX="30.0" layoutY="23.0" prefHeight="602.0"
+                                         prefWidth="709.0"/>
                             </children>
                         </Pane>
                     </children>
                 </Pane>
-                <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <Pane fx:id="GooglePane" layoutX="285.0" layoutY="53.0" prefHeight="767.0" prefWidth="910.0"
+                      style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <TextField fx:id="GoogleSearch" alignment="CENTER" focusTraversable="false" layoutX="121.0" layoutY="135.0" onAction="#getGoogleMeaning" prefHeight="214.0" prefWidth="668.0" promptText="Type the word you are looking for..." style="-fx-background-radius: 22;">
+                        <TextField fx:id="GoogleSearch" alignment="CENTER" focusTraversable="false" layoutX="121.0"
+                                   layoutY="135.0" onAction="#getGoogleMeaning" prefHeight="214.0" prefWidth="668.0"
+                                   promptText="Gõ từ vựng bạn muốn tìm kiếm...." style="-fx-background-radius: 22;">
                             <font>
-                                <Font name="Montserrat SemiBold" size="25.0" />
+                                <Font name="Montserrat SemiBold" size="25.0"/>
                             </font>
                             <effect>
-                                <DropShadow color="#aeabab" height="21.01" radius="10.002500000000001" />
+                                <DropShadow color="#aeabab" height="21.01" radius="10.002500000000001"/>
                             </effect>
                         </TextField>
-                        <ImageView fitHeight="84.0" fitWidth="517.0" layoutX="245.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="84.0" fitWidth="517.0" layoutX="245.0" layoutY="25.0" pickOnBounds="true"
+                                   preserveRatio="true">
                             <image>
-                                <Image url="@../Image/google-translate.png" />
+                                <Image url="@../Image/google-translate.png"/>
                             </image>
                         </ImageView>
-                        <Pane layoutX="123.0" layoutY="378.0" prefHeight="221.0" prefWidth="668.0" style="-fx-background-color: ffffff; -fx-background-radius: 22;">
+                        <Pane layoutX="123.0" layoutY="378.0" prefHeight="221.0" prefWidth="668.0"
+                              style="-fx-background-color: ffffff; -fx-background-radius: 22;">
                             <effect>
-                                <DropShadow color="#aba8a8" height="21.77" radius="10.192499999999999" />
+                                <DropShadow color="#aba8a8" height="21.77" radius="10.192499999999999"/>
                             </effect>
                             <children>
-                                <JFXTextArea fx:id="googleTextArea" focusColor="WHITE" focusTraversable="false" layoutX="24.0" layoutY="15.0" prefHeight="193.0" prefWidth="626.0" unFocusColor="WHITE">
+                                <JFXTextArea fx:id="googleTextArea" focusColor="WHITE" focusTraversable="false"
+                                             layoutX="24.0" layoutY="15.0" prefHeight="193.0" prefWidth="626.0"
+                                             unFocusColor="WHITE">
                                     <font>
-                                        <Font name="Montserrat SemiBold" size="25.0" />
+                                        <Font name="Montserrat SemiBold" size="25.0"/>
                                     </font>
                                 </JFXTextArea>
-                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="628.0" layoutY="7.0" onMouseClicked="#getGoogleSound_vi" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="628.0" layoutY="7.0"
+                                           onMouseClicked="#getGoogleSound_vi" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/speaker.png" />
+                                        <Image url="@../Image/speaker.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
                             </children>
                         </Pane>
-                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="748.0" layoutY="142.0" onMouseClicked="#getGoogleSound_en" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="748.0" layoutY="142.0"
+                                   onMouseClicked="#getGoogleSound_en" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../Image/speaker.png" />
+                                <Image url="@../Image/speaker.png"/>
                             </image>
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
                         </ImageView>
-                        <JFXSlider fx:id="FontSlider" focusTraversable="false" layoutX="304.0" layoutY="653.0" onMouseDragged="#getFontChange" prefHeight="15.0" prefWidth="414.0">
-                     <cursor>
-                        <Cursor fx:constant="OPEN_HAND" />
-                     </cursor></JFXSlider>
-                        <Label focusTraversable="false" layoutX="178.0" layoutY="651.0" text="Change font size" textFill="#797575">
+                        <JFXSlider fx:id="FontSlider" focusTraversable="false" layoutX="304.0" layoutY="653.0"
+                                   onMouseDragged="#getFontChange" prefHeight="15.0" prefWidth="414.0">
+                            <cursor>
+                                <Cursor fx:constant="OPEN_HAND"/>
+                            </cursor>
+                        </JFXSlider>
+                        <Label focusTraversable="false" layoutX="178.0" layoutY="651.0" text="Change font size"
+                               textFill="#797575">
                             <font>
-                                <Font name="Montserrat SemiBold" size="13.0" />
+                                <Font name="Montserrat SemiBold" size="13.0"/>
                             </font>
                         </Label>
-                        <Pane layoutX="312.0" layoutY="686.0" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
+                        <Pane layoutX="312.0" layoutY="686.0" prefHeight="47.0" prefWidth="47.0"
+                              style="-fx-background-color: ffffff; -fx-background-radius: 10;">
                             <children>
-                                <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="6.0" layoutY="4.0" onMouseClicked="#clearGoogleInput" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="6.0" layoutY="4.0"
+                                           onMouseClicked="#clearGoogleInput" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/clear.png" />
+                                        <Image url="@../Image/clear.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
                             </children>
                             <effect>
-                                <DropShadow color="#bcbaba" />
+                                <DropShadow color="#bcbaba"/>
                             </effect>
                         </Pane>
-                        <Label focusTraversable="false" layoutX="178.0" layoutY="701.0" text="Clear input search" textFill="#797575">
+                        <Label focusTraversable="false" layoutX="178.0" layoutY="701.0" text="Clear input search"
+                               textFill="#797575">
                             <font>
-                                <Font name="Montserrat SemiBold" size="13.0" />
+                                <Font name="Montserrat SemiBold" size="13.0"/>
                             </font>
                         </Label>
-                        <Line endX="100.0" layoutX="154.0" layoutY="660.0" scaleX="0.1" startX="-100.0" strokeWidth="0.5" />
-                        <Line endX="100.0" layoutX="154.0" layoutY="709.0" scaleX="0.1" startX="-100.0" strokeWidth="0.5" />
-                        <Line endX="100.0" layoutX="144.0" layoutY="685.0" rotate="90.0" scaleX="0.25" startX="-100.0" strokeWidth="0.5" />
+                        <Line endX="100.0" layoutX="154.0" layoutY="660.0" scaleX="0.1" startX="-100.0"
+                              strokeWidth="0.5"/>
+                        <Line endX="100.0" layoutX="154.0" layoutY="709.0" scaleX="0.1" startX="-100.0"
+                              strokeWidth="0.5"/>
+                        <Line endX="100.0" layoutX="144.0" layoutY="685.0" rotate="90.0" scaleX="0.25" startX="-100.0"
+                              strokeWidth="0.5"/>
                     </children>
                 </Pane>
-                <Pane fx:id="AddPane" layoutX="275.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <Pane fx:id="AddPane" layoutX="275.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0"
+                      style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Pane layoutX="197.0" layoutY="76.0" prefHeight="602.0" prefWidth="517.0" style="-fx-background-color: ffffff; -fx-background-radius: 25;">
+                        <Pane layoutX="197.0" layoutY="76.0" prefHeight="602.0" prefWidth="517.0"
+                              style="-fx-background-color: ffffff; -fx-background-radius: 25;">
                             <children>
-                                <JFXTextField fx:id="inputEN" focusTraversable="false" layoutX="76.0" layoutY="75.0" prefHeight="63.0" prefWidth="365.0" promptText="Input English word">
+                                <JFXTextField fx:id="inputEN" focusTraversable="false" layoutX="76.0" layoutY="75.0"
+                                              prefHeight="63.0" prefWidth="365.0" promptText="Input English word">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                 </JFXTextField>
-                                <JFXTextField fx:id="inputVI" focusTraversable="false" layoutX="76.0" layoutY="185.0" prefHeight="63.0" prefWidth="365.0" promptText="Input Vietnamese meaning">
+                                <JFXTextField fx:id="inputVI" focusTraversable="false" layoutX="76.0" layoutY="185.0"
+                                              prefHeight="63.0" prefWidth="365.0" promptText="Input Vietnamese meaning">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                 </JFXTextField>
-                                <JFXTextField fx:id="inputPronoun" focusTraversable="false" layoutX="76.0" layoutY="303.0" prefHeight="63.0" prefWidth="365.0" promptText="Input pronouncication (Can be null)">
+                                <JFXTextField fx:id="inputPronoun" focusTraversable="false" layoutX="76.0"
+                                              layoutY="303.0" prefHeight="63.0" prefWidth="365.0"
+                                              promptText="Input pronouncication (Can be null)">
                                     <font>
-                                        <Font size="15.0" />
+                                        <Font size="15.0"/>
                                     </font>
                                 </JFXTextField>
-                                <JFXComboBox fx:id="chooseType" focusTraversable="false" layoutX="76.0" layoutY="397.0" prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word">
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor></JFXComboBox>
-                                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="171.0" layoutY="511.0" onAction="#addToDictionary" prefHeight="50.0" prefWidth="176.0" ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css" text="Add to dictionary" textAlignment="CENTER">
+                                <JFXComboBox fx:id="chooseType" focusTraversable="false" layoutX="76.0" layoutY="397.0"
+                                             prefHeight="63.0" prefWidth="365.0" promptText="Choose type of word">
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
+                                </JFXComboBox>
+                                <JFXButton buttonType="RAISED" focusTraversable="false" layoutX="171.0" layoutY="511.0"
+                                           onAction="#addToDictionary" prefHeight="50.0" prefWidth="176.0"
+                                           ripplerFill="#da7e7e" stylesheets="@../Utils/JFX.css"
+                                           text="Add to dictionary" textAlignment="CENTER">
                                     <font>
-                                        <Font name="Montserrat SemiBold" size="15.0" />
+                                        <Font name="Montserrat SemiBold" size="15.0"/>
                                     </font>
                                     <effect>
-                                        <DropShadow color="#a1a0a0" />
+                                        <DropShadow color="#a1a0a0"/>
                                     </effect>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </JFXButton>
                             </children>
                             <effect>
-                                <DropShadow color="#b2afaf" />
+                                <DropShadow color="#b2afaf"/>
                             </effect>
                         </Pane>
                     </children>
                 </Pane>
-                <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <Pane fx:id="ShowPane" layoutX="292.0" layoutY="43.0" prefHeight="767.0" prefWidth="910.0"
+                      style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Pane layoutX="466.0" layoutY="68.0" prefHeight="632.0" prefWidth="350.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+                        <Pane layoutX="466.0" layoutY="68.0" prefHeight="632.0" prefWidth="350.0"
+                              style="-fx-background-color: ffffff; -fx-background-radius: 20;">
                             <children>
-                                <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="308.0" layoutY="5.0" onMouseClicked="#getShowSound" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="34.0" fitWidth="34.0" layoutX="308.0" layoutY="5.0"
+                                           onMouseClicked="#getShowSound" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/speaker.png" />
+                                        <Image url="@../Image/speaker.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
-                                <WebView fx:id="webViewShow" focusTraversable="false" layoutX="22.0" layoutY="43.0" prefHeight="570.0" prefWidth="307.0" />
-                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="8.0" onMouseClicked="#deleteShow" pickOnBounds="true" preserveRatio="true">
+                                <WebView fx:id="webViewShow" focusTraversable="false" layoutX="22.0" layoutY="43.0"
+                                         prefHeight="570.0" prefWidth="307.0"/>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="10.0" layoutY="8.0"
+                                           onMouseClicked="#deleteShow" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/delete.png" />
+                                        <Image url="@../Image/delete.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
-                        <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="280.0" layoutY="9.0" onMouseClicked="#openEditShowPane" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../Image/edit.png" />
-                           </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
-                        </ImageView>
+                                <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="280.0" layoutY="9.0"
+                                           onMouseClicked="#openEditShowPane" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../Image/edit.png"/>
+                                    </image>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
+                                </ImageView>
                             </children>
                             <effect>
-                                <DropShadow color="#abaaaa" />
+                                <DropShadow color="#abaaaa"/>
                             </effect>
                         </Pane>
-                        <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0" onKeyPressed="#getSelectedMeaningOnKey" onMouseClicked="#getSelectedMeaning" prefHeight="632.0" prefWidth="350.0">
+                        <JFXListView fx:id="listView" layoutX="70.0" layoutY="68.0"
+                                     onKeyPressed="#getSelectedMeaningOnKey" onMouseClicked="#getSelectedMeaning"
+                                     prefHeight="632.0" prefWidth="350.0">
                             <effect>
-                                <DropShadow color="#b9b4b4" height="20.21" radius="9.8025" />
+                                <DropShadow color="#b9b4b4" height="20.21" radius="9.8025"/>
                             </effect>
                         </JFXListView>
                     </children>
                 </Pane>
-                <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0" style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <Pane fx:id="SearchPane" layoutX="283.0" prefHeight="767.0" prefWidth="910.0"
+                      style="-fx-background-color: #f4f4f4;" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <TextField fx:id="InputSearch" focusTraversable="false" layoutX="221.0" layoutY="100.0" onAction="#getInputMeaning" prefHeight="50.0" prefWidth="481.0" promptText="Type the word you are looking for..." style="-fx-background-radius: 15;">
+                        <TextField fx:id="InputSearch" focusTraversable="false" layoutX="221.0" layoutY="100.0"
+                                   onAction="#getInputMeaning" prefHeight="50.0" prefWidth="481.0"
+                                   promptText="Gõ từ vựng bạn muốn tìm kiếm......" style="-fx-background-radius: 15;">
                             <effect>
-                                <DropShadow color="#c9c9c9" />
+                                <DropShadow color="#c9c9c9"/>
                             </effect>
-                     <cursor>
-                        <Cursor fx:constant="TEXT" />
-                     </cursor>
+                            <cursor>
+                                <Cursor fx:constant="TEXT"/>
+                            </cursor>
                         </TextField>
-                        <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0" style="-fx-background-color: ffffff; -fx-background-radius: 20;">
+                        <Pane layoutX="59.0" layoutY="230.0" prefHeight="475.0" prefWidth="787.0"
+                              style="-fx-background-color: ffffff; -fx-background-radius: 20;">
                             <effect>
-                                <DropShadow color="#bfbcbc" />
+                                <DropShadow color="#bfbcbc"/>
                             </effect>
                             <children>
-                                <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="745.0" layoutY="3.0" onMouseClicked="#getSearchSound" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="35.0" fitWidth="34.0" layoutX="745.0" layoutY="3.0"
+                                           onMouseClicked="#getSearchSound" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/speaker.png" />
+                                        <Image url="@../Image/speaker.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
-                                <WebView fx:id="webViewSearch" focusTraversable="false" layoutX="34.0" layoutY="56.0" prefHeight="398.0" prefWidth="728.0" />
-                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="8.0" layoutY="8.0" onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
+                                <WebView fx:id="webViewSearch" focusTraversable="false" layoutX="34.0" layoutY="56.0"
+                                         prefHeight="398.0" prefWidth="728.0"/>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="8.0" layoutY="8.0"
+                                           onMouseClicked="#deleteSearch" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/delete.png" />
+                                        <Image url="@../Image/delete.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
-                                <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="714.0" layoutY="8.0" onMouseClicked="#openEditPane" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="26.0" fitWidth="26.0" layoutX="714.0" layoutY="8.0"
+                                           onMouseClicked="#openEditPane" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/edit.png" />
+                                        <Image url="@../Image/edit.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
                             </children>
                         </Pane>
-                        <Pane layoutX="716.0" layoutY="101.0" prefHeight="47.0" prefWidth="47.0" style="-fx-background-color: ffffff; -fx-background-radius: 10;">
+                        <Pane layoutX="716.0" layoutY="101.0" prefHeight="47.0" prefWidth="47.0"
+                              style="-fx-background-color: ffffff; -fx-background-radius: 10;">
                             <children>
-                                <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="7.0" layoutY="4.0" onMouseClicked="#clearSearchInput" pickOnBounds="true" preserveRatio="true">
+                                <ImageView fitHeight="34.0" fitWidth="44.0" layoutX="7.0" layoutY="4.0"
+                                           onMouseClicked="#clearSearchInput" pickOnBounds="true" preserveRatio="true">
                                     <image>
-                                        <Image url="@../Image/clear.png" />
+                                        <Image url="@../Image/clear.png"/>
                                     </image>
-                           <cursor>
-                              <Cursor fx:constant="OPEN_HAND" />
-                           </cursor>
+                                    <cursor>
+                                        <Cursor fx:constant="OPEN_HAND"/>
+                                    </cursor>
                                 </ImageView>
                             </children>
                             <effect>
-                                <DropShadow color="#bcbaba" />
+                                <DropShadow color="#bcbaba"/>
                             </effect>
                         </Pane>
                     </children>

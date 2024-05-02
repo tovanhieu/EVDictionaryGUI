@@ -192,7 +192,7 @@ public class Controller implements Initializable {
     private void getSearchSound(MouseEvent event) throws IOException, JavaLayerException {
         //I can only pronounce a word if you input it
         if (!InputSearch.getText().isEmpty()) {
-            InputStream searchSound = getAudio(InputSearch.getText(), "en");
+            InputStream searchSound = getAudio(InputSearch.getText(), "vi");
             play(searchSound);
         } else noSound();
     }
