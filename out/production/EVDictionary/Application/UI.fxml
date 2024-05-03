@@ -38,13 +38,13 @@
                     </font>
                 </Label>
                 <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="99.0" onAction="#noGoogle"
-                           stylesheets="@../Utils/JFX.css" text="No, thanks">
+                           stylesheets="@../Utils/JFX.css" text="Không">
                     <cursor>
                         <Cursor fx:constant="OPEN_HAND"/>
                     </cursor>
                 </JFXButton>
                 <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="99.0" onAction="#switchGoogle"
-                           stylesheets="@../Utils/JFX.css" text="Yes, sure">
+                           stylesheets="@../Utils/JFX.css" text="Có">
                     <cursor>
                         <Cursor fx:constant="OPEN_HAND"/>
                     </cursor>
@@ -54,7 +54,7 @@
                         <Font name="Montserrat Black" size="17.0"/>
                     </font>
                 </Label>
-                <Label layoutX="26.0" layoutY="65.0" text="Do you want to use Google Translate instead?"
+                <Label layoutX="26.0" layoutY="65.0" text="Bạn có muốn dùng google dịch ?"
                        textFill="#4a4949">
                     <font>
                         <Font size="15.0"/>
@@ -159,24 +159,24 @@
                 <DropShadow color="#bcbbbb" height="54.39" radius="27.455" width="57.43"/>
             </effect>
             <children>
-                <Label layoutX="26.0" layoutY="50.0" text="Are you sure to exit program ?" textFill="#4a4949">
+                <Label layoutX="26.0" layoutY="50.0" text="Bạn có muốn thoát chương trình ?" textFill="#4a4949">
                     <font>
                         <Font size="16.0"/>
                     </font>
                 </Label>
                 <JFXButton buttonType="RAISED" layoutX="294.0" layoutY="90.0" onAction="#NoExit"
-                           stylesheets="@../Utils/JFX.css" text="No, my bad">
+                           stylesheets="@../Utils/JFX.css" text="Không">
                     <cursor>
                         <Cursor fx:constant="OPEN_HAND"/>
                     </cursor>
                 </JFXButton>
                 <JFXButton buttonType="RAISED" layoutX="203.0" layoutY="90.0" onAction="#YesExit"
-                           stylesheets="@../Utils/JFX.css" text="Yes, sure">
+                           stylesheets="@../Utils/JFX.css" text="Có">
                     <cursor>
                         <Cursor fx:constant="OPEN_HAND"/>
                     </cursor>
                 </JFXButton>
-                <Label layoutX="26.0" layoutY="21.0" text="BE CAREFUL !">
+                <Label layoutX="26.0" layoutY="21.0" text="WARNING!!!!!!!">
                     <font>
                         <Font name="Montserrat Black" size="17.0"/>
                     </font>
@@ -272,7 +272,7 @@
                 <VBox prefHeight="800.0" prefWidth="265.0" style="-fx-background-color: #E5E5E5;"
                       AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children>
-                        <ImageView fitHeight="139.0" fitWidth="176.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="209.0" fitWidth="246.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Image/DicLogo.png"/>
                             </image>

@@ -101,7 +101,7 @@ public class Management {
     //Load HTML text from file to display in About tab pane
     public static String aboutInfo() throws IOException
     {
-        File aboutDir = new File("./src/Utils/About.html");
+        File aboutDir = new File("./About.html");
         BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(aboutDir), "UTF8"));
         StringBuilder stringBuilder = new StringBuilder();
         while (br.ready()) {

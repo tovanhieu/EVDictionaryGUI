@@ -10,7 +10,6 @@
     <orderEntry type="library" name="JavaFX" level="application" />
     <orderEntry type="library" name="JavaFX" level="application" />
     <orderEntry type="library" name="controlsfx-11.0.3" level="application" />
-    <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
     <orderEntry type="library" name="lib" level="project" />
     <orderEntry type="library" name="tts" level="project" />
     <orderEntry type="module-library">
@@ -31,5 +30,6 @@
     <orderEntry type="library" name="jsoup-1.13.1" level="project" />
     <orderEntry type="library" name="jl1.0" level="project" />
     <orderEntry type="library" name="freetts-1.2.2" level="project" />
+    <orderEntry type="library" name="jfoenix-9.0.10" level="project" />
   </component>
 </module>
